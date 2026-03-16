@@ -1,0 +1,5 @@
+# robots.txt for malluscorner.nz
+User-agent: *
+Allow: /
+
+Sitemap: https://malluscorner.nz/sitemap.xml
