@@ -1,0 +1,24 @@
+{
+  "name": "malluscorner-website",
+  "version": "1.0.0",
+  "description": "Authentic Kerala Restaurant in Hamilton, NZ",
+  "main": "index.html",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "keywords": [
+    "restaurant",
+    "kerala",
+    "hamilton",
+    "nz",
+    "authentic",
+    "food"
+  ],
+  "author": "Mallu's Corner",
+  "license": "ISC",
+  "devDependencies": {
+    "vite": "^8.0.0"
+  }
+}
