@@ -155,11 +155,41 @@ document.addEventListener('DOMContentLoaded', () => {
         }, { passive: true });
     }
 
+    // ===== 6.1 BACK TO TOP BUTTON =====
+    const backToTop = document.getElementById('back-to-top');
+    if (backToTop) {
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 500) {
+                backToTop.classList.add('visible');
+            } else {
+                backToTop.classList.remove('visible');
+            }
+        }, { passive: true });
+
+        backToTop.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+    }
+
     // ===== 7. FORM ENHANCEMENT =====
     const form = document.querySelector('.modern-form');
     if (form) {
         form.addEventListener('submit', (e) => {
             e.preventDefault();
+            
+            const emailInput = form.querySelector('input[type="email"]');
+            const emailValue = emailInput.value.trim();
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+            if (!emailRegex.test(emailValue)) {
+                emailInput.style.borderColor = '#c62828';
+                alert('Please enter a valid email address.');
+                return;
+            }
+
             const btn = form.querySelector('button[type="submit"]');
             const originalText = btn.textContent;
             
@@ -174,6 +204,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 btn.style.background = 'linear-gradient(135deg, #2e7d32, #4caf50)';
                 
                 form.reset();
+                emailInput.style.borderColor = '';
                 
                 setTimeout(() => {
                     btn.textContent = originalText;

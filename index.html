@@ -29,7 +29,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Outfit:wght@700;800&display=swap" rel="stylesheet">
     
     <!-- Styles -->
-    <link rel="stylesheet" href="/style.css">
+    <link rel="stylesheet" href="./style.css">
     
     <!-- JSON-LD Structured Data -->
     <script type="application/ld+json">
@@ -74,7 +74,7 @@
                 <a href="#" class="logo">
                     <img id="logo-img" src="https://assets.zyrosite.com/AoPvRzBqp7C1DEXR/ai-logo-mk3zR0ZJyRI9L5j4.svg" alt="Mallu's Corner Logo">
                 </a>
-                <div class="menu-toggle" id="mobile-menu">
+                <div class="menu-toggle" id="mobile-menu" aria-label="Toggle Navigation" role="button" tabindex="0">
                     <span></span>
                     <span></span>
                     <span></span>
@@ -172,9 +172,9 @@
                         </div>
                     </div>
                     <div class="gallery-item">
-                        <img src="https://images.unsplash.com/photo-1593432316892-10bb4f131a4d?auto=format&fit=crop&w=1224&h=880" alt="Puttu and Kerala Curry" loading="lazy">
+                        <img src="https://images.unsplash.com/photo-1589187151003-0dd55769239b?auto=format&fit=crop&w=1006&h=1200" alt="Authentic Malabar Biriyani" loading="lazy">
                         <div class="gallery-overlay">
-                            <span>Authentic Curry</span>
+                            <span>Malabar Biriyani</span>
                         </div>
                     </div>
                     <div class="gallery-item">
@@ -267,7 +267,7 @@
 
                         <!-- Map -->
                         <div class="map-container">
-                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m18!1m12!1m3!1d3151.724!2d175.2758!3d-37.8105!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6d6d190000000001%3A0x0!2zMTQ3LzE0OSBPaGF1cG8gUmQsIE1lbHZpbGxlLCBIYW1pbHRvbiAzMjA2LCBOZXcgWmVhbGFuZA!5e0!3m2!1sen!2snz!4v1620000000000" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2000!2d175.2758!3d-37.8105!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6d6d190000000001%3A0x0!2zMTQ3IE9oYXVwbyBSZCwgTWVsdmlsbGUsIEhhbWlsdG9uIDMyMDYsIE5ldyBaZWFsYW5k!5e0!3m2!1sen!2snz!4v1620000000000" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" title="Mallu's Corner Location"></iframe>
                         </div>
                     </div>
 
@@ -321,10 +321,10 @@
                 <div class="footer-col">
                     <h4>Follow Us</h4>
                     <div class="social-links">
-                        <a href="https://www.facebook.com/share/15VG1eYjHH/" class="social-icon" target="_blank" aria-label="Facebook">
+                        <a href="https://www.facebook.com/share/15VG1eYjHH/" class="social-icon" target="_blank" aria-label="Facebook" title="Follow us on Facebook">
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
                         </a>
-                        <a href="https://www.instagram.com/mallus_corner.nz" class="social-icon" target="_blank" aria-label="Instagram">
+                        <a href="https://www.instagram.com/mallus_corner.nz" class="social-icon" target="_blank" aria-label="Instagram" title="Follow us on Instagram">
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
                         </a>
                     </div>
@@ -336,6 +336,10 @@
         </div>
     </footer>
 
-    <script type="module" src="/script.js"></script>
+    <button id="back-to-top" aria-label="Back to Top" title="Back to Top">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="m18 15-6-6-6 6"/></svg>
+    </button>
+
+    <script type="module" src="./script.js"></script>
 </body>
 </html>
