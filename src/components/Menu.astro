@@ -1,4 +1,18 @@
 ---
+const categoryLabels = {
+    chicken: "🍗 Chicken",
+    beef: "🥩 Beef",
+    veg: "🥬 Vegetarian",
+    seafood: "🐟 Sea Food",
+    pork: "🥓 Pork",
+    rice: "🍚 Rice & Biriyani",
+    bread: "🫓 Bread",
+    family: "👨‍👩‍👧‍👦 Family Pack",
+    combos: "🎯 Combos",
+    specials: "⭐ Specials",
+    drinks: "☕ Hot Drinks"
+};
+
 const menuData = {
     chicken: [
         { name: "Chicken curry", price: "$17.99" },
@@ -47,7 +61,7 @@ const menuData = {
         { name: "Veg fried rice", price: "$15.99" }
     ],
     bread: [
-        { name: "Kearla Poratta", price: "$3.50" },
+        { name: "Kerala Porotta", price: "$3.50" },
         { name: "Appam", price: "$2.00" },
         { name: "Idiyappam", price: "$2.00" }
     ],
@@ -67,11 +81,11 @@ const menuData = {
     ],
     specials: [
         { name: "Duck pepper roast", price: "$19.99" },
-        { name: "Kothu poratta", price: "$21.99" },
-        { name: "Kizhi poratta", price: "$22.99" },
+        { name: "Kothu porotta", price: "$21.99" },
+        { name: "Kizhi porotta", price: "$22.99" },
         { name: "Kappa biriyani", price: "$19.99" },
         { name: "Kappa botti", price: "$19.99" },
-        { name: "Fish pollichathu", price: "" },
+        { name: "Fish pollichathu", price: "Market" },
         { name: "Pothichoru", price: "$20.00" }
     ],
     drinks: [
@@ -82,73 +96,86 @@ const menuData = {
 };
 ---
 
-<section id="menu" class="py-20 md:py-28 bg-[#faf8f5]">
-    <div class="w-full max-w-7xl mx-auto px-5">
-        <div class="text-center mb-12 reveal">
-            <span class="inline-block text-[#c75438] font-semibold uppercase tracking-[2px] text-[0.85rem] mb-3">Taste the Tradition</span>
-            <h2 class="text-3xl md:text-4xl lg:text-[3.2rem] font-heading text-[#1e4a30] leading-tight mb-6">Our Food Menu</h2>
-            <p class="text-gray-500 max-w-[600px] mx-auto text-[1.1rem]">Indulge in our vibrant menu featuring authentic Kerala flavors and eclectic cuisine.</p>
+<section id="menu" class="py-16 md:py-24 bg-[#faf8f5]">
+    <div class="w-full max-w-6xl mx-auto px-5">
+        <div class="text-center mb-10 reveal">
+            <span class="inline-block text-[#c75438] font-semibold uppercase tracking-[3px] text-xs mb-4">Taste the Tradition</span>
+            <h2 class="text-2xl md:text-3xl lg:text-4xl font-heading text-[#1e4a30] leading-tight mb-4">Our Food Menu</h2>
+            <p class="text-gray-400 max-w-md mx-auto text-[0.95rem]">Authentic Kerala flavours prepared fresh everyday.</p>
         </div>
 
         <div class="reveal delay-1">
-            <div class="block lg:hidden mb-8">
-                <select id="mobile-menu-select" aria-label="Select Menu Category" class="w-full p-4 border border-black/10 rounded-2xl bg-[#1e4a30] text-white text-[1.1rem] font-body font-medium outline-none shadow-sm appearance-none">
-                    {Object.keys(menuData).map((cat) => (
-                        <option value={cat}>{cat.charAt(0).toUpperCase() + cat.slice(1)}</option>
+            <!-- Mobile Category Selector -->
+            <div class="block lg:hidden mb-6">
+                <select id="mobile-menu-select" aria-label="Select Menu Category" class="w-full p-3.5 border border-gray-200 rounded-xl bg-white text-[#1e4a30] text-sm font-body font-medium outline-none shadow-sm focus:ring-2 focus:ring-[#1e4a30]/20 appearance-none cursor-pointer">
+                    {Object.entries(categoryLabels).map(([key, label]) => (
+                        <option value={key}>{label}</option>
                     ))}
                 </select>
             </div>
 
-            <div class="hidden lg:flex flex-wrap justify-center gap-3 mb-10" id="menu-tabs">
-                {Object.keys(menuData).map((cat) => (
-                    <button class="tab-btn px-6 py-2.5 bg-transparent border-2 border-[#1e4a30] text-[#1e4a30] font-body font-semibold rounded-full cursor-pointer transition-colors hover:bg-[#1e4a30] hover:text-white [&.active]:bg-[#1e4a30] [&.active]:text-white" data-category={cat}>
-                        {cat.charAt(0).toUpperCase() + cat.slice(1)}
+            <!-- Desktop Tabs — Horizontal Scroll -->
+            <div class="hidden lg:flex flex-wrap justify-center gap-2 mb-8" id="menu-tabs">
+                {Object.entries(categoryLabels).map(([key, label]) => (
+                    <button class="tab-btn px-4 py-2 bg-white border border-gray-200 text-gray-600 font-body text-sm font-medium rounded-lg cursor-pointer transition-all duration-200 hover:bg-[#1e4a30] hover:text-white hover:border-[#1e4a30] [&.active]:bg-[#1e4a30] [&.active]:text-white [&.active]:border-[#1e4a30] [&.active]:shadow-md" data-category={key}>
+                        {label}
                     </button>
                 ))}
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-5" id="menu-grid">
-                <!-- Javascript will handle the dynamic rendering to maintain the same interactive behavior -->
+            <!-- Menu Grid — Server rendered for initial load, JS for switching -->
+            <div id="menu-grid">
+                <!-- Rendered by JS below -->
             </div>
         </div>
     </div>
 </section>
 
-<script define:vars={{ menuData }}>
+<script define:vars={{ menuData, categoryLabels }}>
     const menuGrid = document.getElementById('menu-grid');
     const tabBtns = document.querySelectorAll('.tab-btn');
     const mobileSelect = document.getElementById('mobile-menu-select');
 
     function renderMenu(category) {
         if (!menuGrid) return;
-        
         menuGrid.innerHTML = '';
         const items = menuData[category] || [];
-        
-        items.forEach((item, index) => {
-            const el = document.createElement('div');
-            el.className = 'reveal bg-[#faf8f5] p-6 rounded-2xl shadow-[0_4px_15px_rgba(0,0,0,0.04)] flex justify-between items-center border border-[#dca43b]/20 relative overflow-hidden transition-all duration-300 z-10 hover:-translate-y-1.5 hover:shadow-[0_8px_25px_rgba(30,74,48,0.1)] hover:border-[#dca43b] group';
-            el.style.transitionDelay = `${index * 0.05}s`;
-            
-            // Add pseudo-element effect manually since it's hard with standard Tailwind in dynamic JS without more config
-            const bgHover = document.createElement('div');
-            bgHover.className = 'absolute top-0 left-0 h-full w-1 bg-[#dca43b] transition-all duration-300 -z-10 group-hover:w-full group-hover:opacity-[0.05]';
-            el.appendChild(bgHover);
 
-            const info = document.createElement('div');
-            info.innerHTML = `<h4 class="font-heading font-semibold text-xl tracking-[0.5px] mb-1 text-[#1e4a30]">${item.name}</h4>`;
-            el.appendChild(info);
+        // Create the table-like container
+        const container = document.createElement('div');
+        container.className = 'bg-white rounded-2xl border border-gray-100 shadow-sm overflow-hidden';
+
+        // Category header
+        const header = document.createElement('div');
+        header.className = 'bg-[#1e4a30] text-white px-6 py-4 flex items-center justify-between';
+        header.innerHTML = `
+            <h3 class="font-heading text-lg font-bold">${categoryLabels[category] || category}</h3>
+            <span class="text-white/60 text-xs font-body">${items.length} items</span>
+        `;
+        container.appendChild(header);
+
+        items.forEach((item, index) => {
+            const row = document.createElement('div');
+            row.className = 'flex items-center justify-between px-6 py-4 border-b border-gray-50 last:border-b-0 hover:bg-[#faf8f5] transition-colors group';
+
+            const left = document.createElement('div');
+            left.className = 'flex items-center gap-3';
+            left.innerHTML = `
+                <span class="w-1.5 h-1.5 bg-[#dca43b] rounded-full opacity-60 group-hover:opacity-100 transition-opacity shrink-0"></span>
+                <span class="font-body text-gray-700 font-medium text-[0.95rem]">${item.name}</span>
+            `;
+            row.appendChild(left);
 
             if (item.price) {
                 const price = document.createElement('span');
-                price.className = 'font-bold text-white bg-[#1e4a30] font-body text-[1.1rem] py-2 px-4 rounded-lg shadow-sm';
+                price.className = 'font-body font-bold text-[#1e4a30] text-sm whitespace-nowrap ml-4';
                 price.textContent = item.price;
-                el.appendChild(price);
+                row.appendChild(price);
             }
-            
-            menuGrid.appendChild(el);
-            setTimeout(() => el.classList.add('active'), 10);
+            container.appendChild(row);
         });
+
+        menuGrid.appendChild(container);
     }
 
     tabBtns.forEach(btn => {
@@ -172,7 +199,7 @@ const menuData = {
         });
     }
 
-    // Set first tab active
+    // Initial render
     if (tabBtns.length > 0) tabBtns[0].classList.add('active');
     renderMenu('chicken');
 </script>
