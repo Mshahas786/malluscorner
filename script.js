@@ -1,161 +1,211 @@
-/* 
-  Mallu's Corner - Next-Gen Redesign 2024
-  Full Menu Integration & Premium Interactivity
-*/
-
 document.addEventListener('DOMContentLoaded', () => {
-    // ===== MENU DATA =====
+    // ===== MENU DATA FROM ORIGINAL WEBSITE =====
     const menuData = {
         chicken: [
-            { name: "Chicken Biriyani", price: "$18.99", desc: "Authentic Kerala style dum biriyani with aromatic spices. (Family pack $65.00)" },
-            { name: "Chicken Curry (with bone)", price: "$18.50", desc: "Traditional Kerala style chicken curry with coconut milk and spices." },
-            { name: "Chicken Roast", price: "$18.50", desc: "Slow-cooked chicken with roasted coconut and Kerala spices." },
-            { name: "Chicken Stew", price: "$18.50", desc: "Mild and creamy chicken curry with potatoes and carrots." },
-            { name: "Butter Chicken", price: "$18.99", desc: "Creamy tomato-based gravy with tender chicken pieces." },
-            { name: "Chicken 65", price: "$15.00", desc: "Spicy, deep-fried chicken bites – a South Indian favorite." }
+            { name: "Chicken curry", price: "$17.99" },
+            { name: "Kadai chicken", price: "$17.99" },
+            { name: "Butter chicken", price: "$17.99" },
+            { name: "Chicken roast", price: "$17.99" },
+            { name: "Chilli chicken", price: "$17.99" },
+            { name: "Chicken 65", price: "$18.99" },
+            { name: "Chicken kondattom", price: "$18.99" },
+            { name: "Chicken manjurian", price: "$17.99" },
+            { name: "Ginger chicken", price: "$17.99" },
+            { name: "Garlic chicken", price: "$17.99" },
+            { name: "Chicken lollipop", price: "$19.99" }
         ],
         beef: [
-            { name: "Kerala Beef Roast", price: "$19.99", desc: "Slow-cooked beef with coconut slices and hand-ground spices." },
-            { name: "Beef Fry (Ularthiyathu)", price: "$19.99", desc: "Traditional dry beef fry with curry leaves and black pepper." },
-            { name: "Beef Curry", price: "$19.50", desc: "Tender beef pieces in a rich, spicy gravy." },
-            { name: "Beef Stew", price: "$19.50", desc: "Hearty beef stew with vegetables in a mild coconut milk base." }
+            { name: "Beef roast", price: "$19.99" },
+            { name: "Beef curry", price: "$19.99" },
+            { name: "Beef kondattom", price: "$20.99" },
+            { name: "Chilli beef", price: "$19.99" },
+            { name: "Beef dry fry", price: "$21.99" }
         ],
         veg: [
-            { name: "Paneer Butter Masala", price: "$17.50", desc: "Cottage cheese in a rich and creamy tomato gravy." },
-            { name: "Dal Tadka", price: "$15.00", desc: "Yellow lentils tempered with cumin, garlic, and chilies." },
-            { name: "Mix Vegetable Curry", price: "$16.50", desc: "Assorted vegetables cooked in a coconut-based Kerala gravy." },
-            { name: "Gobi Manchurian", price: "$15.50", desc: "Indo-Chinese style crispy cauliflower in spicy sauce." },
-            { name: "Veg Kurma", price: "$16.50", desc: "Mildly spiced vegetable curry with coconut and cashew paste." }
+            { name: "Gobi 65", price: "$15.00" },
+            { name: "Chilli Gobi", price: "$16.00" },
+            { name: "Chilli Paneer", price: "$16.00" },
+            { name: "Gobi manjurian", price: "$16.00" },
+            { name: "Paneer butter masala", price: "$16.00" }
         ],
         seafood: [
-            { name: "Fish Curry (Kerala Style)", price: "$20.50", desc: "Traditional spicy fish curry with gambooge (kudampuli)." },
-            { name: "Fish Pollichathu", price: "$22.50", desc: "Fish marinated in spices, wrapped in banana leaf and grilled." },
-            { name: "Prawn Curry", price: "$21.50", desc: "Fresh prawns cooked in a creamy coconut milk gravy." },
-            { name: "Prawn Roast", price: "$21.50", desc: "Spicy prawn roast with onions, tomatoes, and Kerala spices." }
+            { name: "Fish curry", price: "$18.99" },
+            { name: "Crab roast", price: "$18.00" },
+            { name: "Chilli prawns", price: "$19.00" },
+            { name: "Prawns masala", price: "$18.00" }
         ],
         pork: [
-            { name: "Kerala Pork Roast", price: "$19.50", desc: "Slow-cooked pork with traditional spices and coconut bits." },
-            { name: "Chilli Pork (Malayali Style)", price: "$18.99", desc: "Spicy and tangy pork – our signature fusion dish." },
-            { name: "Pork Fry", price: "$19.50", desc: "Dry pork fry with loads of curry leaves and pepper." }
+            { name: "Chilli pork", price: "$18.99" }
         ],
         rice: [
-            { name: "Egg Biriyani", price: "$16.50", desc: "Fragrant rice cooked with boiled eggs and aromatic spices." },
-            { name: "Veg Biriyani", price: "$15.99", desc: "Seasonal vegetables dum-cooked with basmati rice." },
-            { name: "Ghee Rice", price: "$10.00", desc: "Aromatic basmati rice cooked with ghee and whole spices." },
-            { name: "Egg Fried Rice", price: "$15.50", desc: "Indo-Chinese style fried rice with eggs and veggies." },
-            { name: "Chicken Fried Rice", price: "$16.99", desc: "Classic fried rice with chicken, eggs, and spring onions." }
+            { name: "Chicken Biriyani", price: "$18.99" },
+            { name: "Beef Biriyani", price: "$19.99" },
+            { name: "Mutton Biriyani", price: "$19.99" },
+            { name: "Fish biriyani", price: "$20.99" },
+            { name: "Vegetable biriyani", price: "$16.00" },
+            { name: "Chicken fried rice", price: "$17.99" },
+            { name: "Egg fried rice", price: "$16.99" },
+            { name: "Veg fried rice", price: "$15.99" }
         ],
         bread: [
-            { name: "Kerala Parotta (2 pcs)", price: "$6.00", desc: "Flaky, multi-layered flatbread – a Kerala specialty." },
-            { name: "Appam (2 pcs)", price: "$5.00", desc: "Lacy, fermented rice and coconut milk pancakes." },
-            { name: "Chapati (2 pcs)", price: "$5.00", desc: "Soft whole wheat flatbreads." },
-            { name: "Egg Parotta", price: "$8.50", desc: "Parotta stuffed or topped with spiced egg." }
+            { name: "Kearla Poratta", price: "$3.50" },
+            { name: "Appam", price: "$2.00" },
+            { name: "Idiyappam", price: "$2.00" }
+        ],
+        family: [
+            { name: "Chicken fried rice", price: "$60.00" },
+            { name: "Chicken biriyani", price: "$60.00" },
+            { name: "Beef biriyani", price: "$80.00" },
+            { name: "Kappa biriyani", price: "$80.00" }
         ],
         combos: [
-            { name: "Single Combo (Chicken)", price: "$22.00", desc: "Chicken Curry + 2 Parotta/Appam + Side Salad." },
-            { name: "Single Combo (Beef)", price: "$23.00", desc: "Beef Roast + 2 Parotta/Appam + Side Salad." },
-            { name: "Family Pack (Biriyani)", price: "$65.00", desc: "Full Chicken Biriyani (serves 4-5) + Raitha + Pickle." }
+            { name: "Porotta & beef roast", price: "$20.99" },
+            { name: "Porotta & chicken curry", price: "$19.99" },
+            { name: "Porotta, Rice & Butter chicken", price: "$19.99" },
+            { name: "Porotta & chilli chicken", price: "$19.99" },
+            { name: "Fried rice & chilli chicken", price: "$19.99" },
+            { name: "Kappa & fish curry", price: "$21.99" }
         ],
         specials: [
-            { name: "Kappa & Fish Curry", price: "$19.99", desc: "Boiled cassava (tapioca) served with spicy Kerala fish curry." },
-            { name: "Kizhi Parotta (Chicken)", price: "$21.00", desc: "Parotta and chicken curry tied in banana leaf and steamed." },
-            { name: "Kizhi Parotta (Beef)", price: "$22.00", desc: "Parotta and beef roast tied in banana leaf and steamed." }
+            { name: "Duck pepper roast", price: "$19.99" },
+            { name: "Kothu poratta", price: "$21.99" },
+            { name: "Kizhi poratta", price: "$22.99" },
+            { name: "Kappa biriyani", price: "$19.99" },
+            { name: "Kappa botti", price: "$19.99" },
+            { name: "Fish pollichathu", price: "" },
+            { name: "Pothichoru", price: "$20.00" }
+        ],
+        drinks: [
+            { name: "Tea", price: "$4.00" },
+            { name: "Coffee", price: "$4.00" },
+            { name: "Mint Tea", price: "$3.00" }
         ]
     };
 
     // ===== MENU RENDERING =====
-    const menuDisplay = document.getElementById('menu-display');
-    const menuTabs = document.querySelectorAll('.menu-tab');
+    const menuGrid = document.getElementById('menu-grid');
+    const tabBtns = document.querySelectorAll('.tab-btn');
+    const mobileSelect = document.getElementById('mobile-menu-select');
 
     function renderMenu(category) {
-        if (!menuDisplay) return;
+        if (!menuGrid) return;
         
-        menuDisplay.innerHTML = '';
+        menuGrid.innerHTML = '';
         const items = menuData[category] || [];
         
         items.forEach((item, index) => {
-            const card = document.createElement('div');
-            card.className = 'menu-card-v2 reveal';
-            card.style.transitionDelay = `${index * 0.05}s`;
+            const el = document.createElement('div');
+            el.className = 'menu-item reveal';
+            el.style.transitionDelay = `${index * 0.05}s`;
             
-            card.innerHTML = `
-                <div class="card-header-v2">
+            const priceHtml = item.price ? `<span class="menu-price">${item.price}</span>` : '';
+            
+            el.innerHTML = `
+                <div class="menu-info">
                     <h4>${item.name}</h4>
-                    <span class="price-v2">${item.price}</span>
                 </div>
-                <p>${item.desc}</p>
+                ${priceHtml}
             `;
-            menuDisplay.appendChild(card);
+            menuGrid.appendChild(el);
             
-            // Re-trigger observer for new elements
-            setTimeout(() => card.classList.add('active'), 50);
+            // Re-trigger reveal animation
+            setTimeout(() => el.classList.add('active'), 50);
         });
     }
 
-    menuTabs.forEach(tab => {
-        tab.addEventListener('click', () => {
-            menuTabs.forEach(t => t.classList.remove('active'));
-            tab.classList.add('active');
-            renderMenu(tab.dataset.category);
+    // Handle Desktop Tabs
+    tabBtns.forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            // Update active state for tabs
+            tabBtns.forEach(t => t.classList.remove('active'));
+            const targetBtn = e.target;
+            targetBtn.classList.add('active');
+            
+            const category = targetBtn.dataset.category;
+            
+            // Sync mobile select
+            if (mobileSelect) {
+                mobileSelect.value = category;
+            }
+            
+            renderMenu(category);
         });
     });
+
+    // Handle Mobile Select
+    if (mobileSelect) {
+        mobileSelect.addEventListener('change', (e) => {
+            const category = e.target.value;
+            
+            // Sync desktop tabs
+            tabBtns.forEach(t => {
+                t.classList.remove('active');
+                if (t.dataset.category === category) {
+                    t.classList.add('active');
+                }
+            });
+            
+            renderMenu(category);
+        });
+    }
 
     // Initial render
     renderMenu('chicken');
 
-    // ===== SCROLL EFFECTS =====
-    const header = document.getElementById('header');
-    const reveals = document.querySelectorAll('.reveal');
+    // ===== MOBILE MENU TOGGLE =====
+    const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+    const navLinks = document.getElementById('nav-links');
+    
+    if (mobileMenuBtn && navLinks) {
+        mobileMenuBtn.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
 
+        // Close menu when clicking a link
+        navLinks.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+            });
+        });
+    }
+
+    // ===== NAVBAR SCROLL EFFECT =====
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 50) {
+            navbar.style.boxShadow = '0 4px 12px rgba(30, 74, 48, 0.15)';
+        } else {
+            navbar.style.boxShadow = 'var(--shadow-sm)';
+        }
+    });
+
+    // ===== REVEAL ANIMATIONS ON SCROLL =====
+    const revealElements = document.querySelectorAll('.reveal');
     const revealObserver = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 entry.target.classList.add('active');
             }
         });
-    }, { threshold: 0.1 });
+    }, { threshold: 0.15 });
 
-    reveals.forEach(el => revealObserver.observe(el));
+    revealElements.forEach(el => revealObserver.observe(el));
 
-    window.addEventListener('scroll', () => {
-        if (window.scrollY > 50) {
-            header.classList.add('scrolled');
-        } else {
-            header.classList.remove('scrolled');
-        }
-    });
-
-    // ===== BACK TO TOP =====
-    const btt = document.getElementById('back-to-top');
-    if (btt) {
+    // ===== BACK TO TOP BUTTON =====
+    const backToTopBtn = document.getElementById('back-to-top');
+    if (backToTopBtn) {
         window.addEventListener('scroll', () => {
-            if (window.scrollY > 300) {
-                btt.style.display = 'flex';
-                setTimeout(() => btt.style.opacity = '1', 10);
+            if (window.scrollY > 400) {
+                backToTopBtn.classList.add('show');
             } else {
-                btt.style.opacity = '0';
-                setTimeout(() => btt.style.display = 'none', 300);
+                backToTopBtn.classList.remove('show');
             }
         });
 
-        btt.addEventListener('click', () => {
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        });
-    }
-
-    // ===== MOBILE MENU =====
-    const mobileMenu = document.getElementById('mobile-menu');
-    const navLinks = document.querySelector('.nav-links');
-
-    if (mobileMenu && navLinks) {
-        mobileMenu.addEventListener('click', () => {
-            navLinks.classList.toggle('active');
-        });
-
-        // Close menu on link click
-        document.querySelectorAll('.nav-links a').forEach(link => {
-            link.addEventListener('click', () => {
-                navLinks.classList.remove('active');
+        backToTopBtn.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
             });
         });
     }
