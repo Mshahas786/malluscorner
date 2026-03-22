@@ -1,37 +1,46 @@
-# Mallu's Corner Website Redesign
+# Astro Starter Kit: Basics
 
-Modern, fully responsive static website for Mallu's Corner, an authentic Kerala restaurant in Hamilton, NZ.
+```sh
+npm create astro@latest -- --template basics
+```
 
-## Live URL
-[https://malluscorner.nz](https://malluscorner.nz) (Custom Domain)
-[https://<github-username>.github.io/malluscorner-website](https://<github-username>.github.io/malluscorner-website) (GitHub Pages)
+> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
 
-## Tech Stack
-- Vanilla HTML5 (Semantic)
-- Vanilla CSS3 (Modern Flexbox/Grid)
-- Vanilla JavaScript
-- SEO Optimized (JSON-LD, Meta Tags, Sitemap)
+## 🚀 Project Structure
 
-## Local Setup
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/<github-username>/malluscorner-website.git
-   ```
-2. Open `index.html` in your browser or use a live server.
+Inside of your Astro project, you'll see the following folders and files:
 
-## Deployment
-Automated via GitHub Pages on the `main` branch.
+```text
+/
+├── public/
+│   └── favicon.svg
+├── src
+│   ├── assets
+│   │   └── astro.svg
+│   ├── components
+│   │   └── Welcome.astro
+│   ├── layouts
+│   │   └── Layout.astro
+│   └── pages
+│       └── index.astro
+└── package.json
+```
 
-## SEO Checklist Implemented
-- [x] Title tags for all sections
-- [x] Meta description tags
-- [x] Open Graph tags
-- [x] Twitter Card tags
-- [x] Canonical URL tags
-- [x] sitemap.xml
-- [x] robots.txt
-- [x] Semantic HTML5 elements
-- [x] Structured data (Schema.org JSON-LD)
-- [x] Responsive images with alt attributes
-- [x] Heading hierarchy
-- [x] Page load optimization (Minified styles/scripts, lazy load)
+To learn more about the folder structure of an Astro project, refer to [our guide on project structure](https://docs.astro.build/en/basics/project-structure/).
+
+## 🧞 Commands
+
+All commands are run from the root of the project, from a terminal:
+
+| Command                   | Action                                           |
+| :------------------------ | :----------------------------------------------- |
+| `npm install`             | Installs dependencies                            |
+| `npm run dev`             | Starts local dev server at `localhost:4321`      |
+| `npm run build`           | Build your production site to `./dist/`          |
+| `npm run preview`         | Preview your build locally, before deploying     |
+| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
+| `npm run astro -- --help` | Get help using the Astro CLI                     |
+
+## 👀 Want to learn more?
+
+Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).

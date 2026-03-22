@@ -1,0 +1,178 @@
+---
+const menuData = {
+    chicken: [
+        { name: "Chicken curry", price: "$17.99" },
+        { name: "Kadai chicken", price: "$17.99" },
+        { name: "Butter chicken", price: "$17.99" },
+        { name: "Chicken roast", price: "$17.99" },
+        { name: "Chilli chicken", price: "$17.99" },
+        { name: "Chicken 65", price: "$18.99" },
+        { name: "Chicken kondattom", price: "$18.99" },
+        { name: "Chicken manjurian", price: "$17.99" },
+        { name: "Ginger chicken", price: "$17.99" },
+        { name: "Garlic chicken", price: "$17.99" },
+        { name: "Chicken lollipop", price: "$19.99" }
+    ],
+    beef: [
+        { name: "Beef roast", price: "$19.99" },
+        { name: "Beef curry", price: "$19.99" },
+        { name: "Beef kondattom", price: "$20.99" },
+        { name: "Chilli beef", price: "$19.99" },
+        { name: "Beef dry fry", price: "$21.99" }
+    ],
+    veg: [
+        { name: "Gobi 65", price: "$15.00" },
+        { name: "Chilli Gobi", price: "$16.00" },
+        { name: "Chilli Paneer", price: "$16.00" },
+        { name: "Gobi manjurian", price: "$16.00" },
+        { name: "Paneer butter masala", price: "$16.00" }
+    ],
+    seafood: [
+        { name: "Fish curry", price: "$18.99" },
+        { name: "Crab roast", price: "$18.00" },
+        { name: "Chilli prawns", price: "$19.00" },
+        { name: "Prawns masala", price: "$18.00" }
+    ],
+    pork: [
+        { name: "Chilli pork", price: "$18.99" }
+    ],
+    rice: [
+        { name: "Chicken Biriyani", price: "$18.99" },
+        { name: "Beef Biriyani", price: "$19.99" },
+        { name: "Mutton Biriyani", price: "$19.99" },
+        { name: "Fish biriyani", price: "$20.99" },
+        { name: "Vegetable biriyani", price: "$16.00" },
+        { name: "Chicken fried rice", price: "$17.99" },
+        { name: "Egg fried rice", price: "$16.99" },
+        { name: "Veg fried rice", price: "$15.99" }
+    ],
+    bread: [
+        { name: "Kearla Poratta", price: "$3.50" },
+        { name: "Appam", price: "$2.00" },
+        { name: "Idiyappam", price: "$2.00" }
+    ],
+    family: [
+        { name: "Chicken fried rice", price: "$60.00" },
+        { name: "Chicken biriyani", price: "$60.00" },
+        { name: "Beef biriyani", price: "$80.00" },
+        { name: "Kappa biriyani", price: "$80.00" }
+    ],
+    combos: [
+        { name: "Porotta & beef roast", price: "$20.99" },
+        { name: "Porotta & chicken curry", price: "$19.99" },
+        { name: "Porotta, Rice & Butter chicken", price: "$19.99" },
+        { name: "Porotta & chilli chicken", price: "$19.99" },
+        { name: "Fried rice & chilli chicken", price: "$19.99" },
+        { name: "Kappa & fish curry", price: "$21.99" }
+    ],
+    specials: [
+        { name: "Duck pepper roast", price: "$19.99" },
+        { name: "Kothu poratta", price: "$21.99" },
+        { name: "Kizhi poratta", price: "$22.99" },
+        { name: "Kappa biriyani", price: "$19.99" },
+        { name: "Kappa botti", price: "$19.99" },
+        { name: "Fish pollichathu", price: "" },
+        { name: "Pothichoru", price: "$20.00" }
+    ],
+    drinks: [
+        { name: "Tea", price: "$4.00" },
+        { name: "Coffee", price: "$4.00" },
+        { name: "Mint Tea", price: "$3.00" }
+    ]
+};
+---
+
+<section id="menu" class="py-20 md:py-28 bg-[#faf8f5]">
+    <div class="w-full max-w-7xl mx-auto px-5">
+        <div class="text-center mb-12 reveal">
+            <span class="inline-block text-[#c75438] font-semibold uppercase tracking-[2px] text-[0.85rem] mb-3">Taste the Tradition</span>
+            <h2 class="text-3xl md:text-4xl lg:text-[3.2rem] font-heading text-[#1e4a30] leading-tight mb-6">Our Food Menu</h2>
+            <p class="text-gray-500 max-w-[600px] mx-auto text-[1.1rem]">Indulge in our vibrant menu featuring authentic Kerala flavors and eclectic cuisine.</p>
+        </div>
+
+        <div class="reveal delay-1">
+            <div class="block lg:hidden mb-8">
+                <select id="mobile-menu-select" aria-label="Select Menu Category" class="w-full p-4 border border-black/10 rounded-2xl bg-[#1e4a30] text-white text-[1.1rem] font-body font-medium outline-none shadow-sm appearance-none">
+                    {Object.keys(menuData).map((cat) => (
+                        <option value={cat}>{cat.charAt(0).toUpperCase() + cat.slice(1)}</option>
+                    ))}
+                </select>
+            </div>
+
+            <div class="hidden lg:flex flex-wrap justify-center gap-3 mb-10" id="menu-tabs">
+                {Object.keys(menuData).map((cat) => (
+                    <button class="tab-btn px-6 py-2.5 bg-transparent border-2 border-[#1e4a30] text-[#1e4a30] font-body font-semibold rounded-full cursor-pointer transition-colors hover:bg-[#1e4a30] hover:text-white [&.active]:bg-[#1e4a30] [&.active]:text-white" data-category={cat}>
+                        {cat.charAt(0).toUpperCase() + cat.slice(1)}
+                    </button>
+                ))}
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-5" id="menu-grid">
+                <!-- Javascript will handle the dynamic rendering to maintain the same interactive behavior -->
+            </div>
+        </div>
+    </div>
+</section>
+
+<script define:vars={{ menuData }}>
+    const menuGrid = document.getElementById('menu-grid');
+    const tabBtns = document.querySelectorAll('.tab-btn');
+    const mobileSelect = document.getElementById('mobile-menu-select');
+
+    function renderMenu(category) {
+        if (!menuGrid) return;
+        
+        menuGrid.innerHTML = '';
+        const items = menuData[category] || [];
+        
+        items.forEach((item, index) => {
+            const el = document.createElement('div');
+            el.className = 'reveal bg-[#faf8f5] p-6 rounded-2xl shadow-[0_4px_15px_rgba(0,0,0,0.04)] flex justify-between items-center border border-[#dca43b]/20 relative overflow-hidden transition-all duration-300 z-10 hover:-translate-y-1.5 hover:shadow-[0_8px_25px_rgba(30,74,48,0.1)] hover:border-[#dca43b] group';
+            el.style.transitionDelay = `${index * 0.05}s`;
+            
+            // Add pseudo-element effect manually since it's hard with standard Tailwind in dynamic JS without more config
+            const bgHover = document.createElement('div');
+            bgHover.className = 'absolute top-0 left-0 h-full w-1 bg-[#dca43b] transition-all duration-300 -z-10 group-hover:w-full group-hover:opacity-[0.05]';
+            el.appendChild(bgHover);
+
+            const info = document.createElement('div');
+            info.innerHTML = `<h4 class="font-heading font-semibold text-xl tracking-[0.5px] mb-1 text-[#1e4a30]">${item.name}</h4>`;
+            el.appendChild(info);
+
+            if (item.price) {
+                const price = document.createElement('span');
+                price.className = 'font-bold text-white bg-[#1e4a30] font-body text-[1.1rem] py-2 px-4 rounded-lg shadow-sm';
+                price.textContent = item.price;
+                el.appendChild(price);
+            }
+            
+            menuGrid.appendChild(el);
+            setTimeout(() => el.classList.add('active'), 10);
+        });
+    }
+
+    tabBtns.forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            tabBtns.forEach(t => t.classList.remove('active'));
+            e.currentTarget.classList.add('active');
+            const category = e.currentTarget.dataset.category;
+            if (mobileSelect) mobileSelect.value = category;
+            renderMenu(category);
+        });
+    });
+
+    if (mobileSelect) {
+        mobileSelect.addEventListener('change', (e) => {
+            const category = e.target.value;
+            tabBtns.forEach(t => {
+                t.classList.remove('active');
+                if (t.dataset.category === category) t.classList.add('active');
+            });
+            renderMenu(category);
+        });
+    }
+
+    // Set first tab active
+    if (tabBtns.length > 0) tabBtns[0].classList.add('active');
+    renderMenu('chicken');
+</script>

@@ -1,0 +1,62 @@
+--- 
+interface Props {
+	title: string;
+}
+
+const { title } = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="description" content="Experience the authentic flavors of Kerala at Mallu's Corner Hamilton. A unique blend of Kerala, Chinese, and Arabic cuisines. Rated 5 stars for quality and taste." />
+		<meta name="viewport" content="width=device-width" />
+        <link rel="icon" type="image/svg+xml" href="https://assets.zyrosite.com/AoPvRzBqp7C1DEXR/ai-logo-mk3zR0ZJyRI9L5j4.svg" />
+		<meta name="generator" content={Astro.generator} />
+		<title>{title}</title>
+        
+        <!-- Fonts -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,600&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+	</head>
+	<body class="font-body bg-[#faf8f5] text-gray-800 antialiased leading-relaxed">
+		<slot />
+        <script>
+            // Reveal Animations
+            const revealElements = document.querySelectorAll('.reveal');
+            const revealObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('active');
+                    }
+                });
+            }, { threshold: 0.15 });
+
+            revealElements.forEach(el => revealObserver.observe(el));
+
+            // Set JS enabled
+            document.documentElement.classList.add('js-enabled');
+        </script>
+        <style is:global>
+            /* Reveal Animations */
+            .js-enabled .reveal {
+                opacity: 0;
+                transform: translateY(30px);
+                transition: all 0.6s ease-out;
+            }
+            .js-enabled .reveal.delay-1 { transition-delay: 0.2s; }
+            .js-enabled .reveal.delay-2 { transition-delay: 0.4s; }
+            .js-enabled .reveal.active {
+                opacity: 1;
+                transform: translateY(0);
+            }
+            
+            html {
+                scroll-behavior: smooth;
+                scroll-padding-top: 80px;
+            }
+        </style>
+	</body>
+</html>
