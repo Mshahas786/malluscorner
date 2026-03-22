@@ -20,71 +20,71 @@
     
     <script>document.documentElement.classList.add('js-enabled');</script>
 </head>
-<body>
+<body class="font-body bg-bg-main text-gray-800 antialiased leading-relaxed">
     <!-- Navigation -->
-    <header class="navbar" id="navbar">
-        <div class="container nav-container">
-            <a href="#" class="logo">
-                <img src="https://assets.zyrosite.com/AoPvRzBqp7C1DEXR/ai-logo-mk3zR0ZJyRI9L5j4.svg" alt="Mallu's Corner Logo">
+    <header class="fixed top-0 left-0 w-full bg-[#faf8f5]/95 backdrop-blur-md shadow-sm z-50 py-4 transition-all duration-300" id="navbar">
+        <div class="w-full max-w-7xl mx-auto px-5 flex justify-between items-center">
+            <a href="#" class="relative z-[51]">
+                <img src="https://assets.zyrosite.com/AoPvRzBqp7C1DEXR/ai-logo-mk3zR0ZJyRI9L5j4.svg" alt="Mallu's Corner Logo" class="h-12 md:h-14">
             </a>
-            <button class="menu-toggle" aria-label="Toggle menu" id="mobile-menu-btn">
-                <span></span>
-                <span></span>
-                <span></span>
+            <button class="flex flex-col gap-1.5 bg-transparent border-none cursor-pointer z-[51] relative p-2 lg:hidden" aria-label="Toggle menu" id="mobile-menu-btn">
+                <span class="block w-8 h-1 rounded-sm bg-primary transition-all duration-300"></span>
+                <span class="block w-8 h-1 rounded-sm bg-primary transition-all duration-300"></span>
+                <span class="block w-8 h-1 rounded-sm bg-primary transition-all duration-300"></span>
             </button>
-            <nav class="nav-links" id="nav-links">
-                <a href="#home">Home</a>
-                <a href="#about">Our Story</a>
-                <a href="#menu">Menu</a>
-                <a href="#gallery">Gallery</a>
-                <a href="#contact">Contact</a>
-                <a href="tel:078430307" class="btn btn-primary nav-cta">Call Now</a>
+            <nav class="fixed top-0 -left-full w-[85%] max-w-[400px] h-screen bg-bg-alt px-8 pt-28 pb-10 shadow-xl flex flex-col gap-6 transition-[left] duration-500 ease-in-out z-[50] lg:static lg:flex-row lg:w-auto lg:h-auto lg:bg-transparent lg:p-0 lg:shadow-none lg:flex lg:items-center lg:justify-center lg:gap-8 [&.active]:left-0" id="nav-links">
+                <a href="#home" class="font-heading text-3xl text-primary border-b border-primary/10 pb-4 lg:font-body lg:text-[1.05rem] lg:border-none lg:pb-0 lg:font-medium hover:text-accent transition-colors">Home</a>
+                <a href="#about" class="font-heading text-3xl text-primary border-b border-primary/10 pb-4 lg:font-body lg:text-[1.05rem] lg:border-none lg:pb-0 lg:font-medium hover:text-accent transition-colors">Our Story</a>
+                <a href="#menu" class="font-heading text-3xl text-primary border-b border-primary/10 pb-4 lg:font-body lg:text-[1.05rem] lg:border-none lg:pb-0 lg:font-medium hover:text-accent transition-colors">Menu</a>
+                <a href="#gallery" class="font-heading text-3xl text-primary border-b border-primary/10 pb-4 lg:font-body lg:text-[1.05rem] lg:border-none lg:pb-0 lg:font-medium hover:text-accent transition-colors">Gallery</a>
+                <a href="#contact" class="font-heading text-3xl text-primary border-b border-primary/10 pb-4 lg:font-body lg:text-[1.05rem] lg:border-none lg:pb-0 lg:font-medium hover:text-accent transition-colors">Contact</a>
+                <a href="tel:078430307" class="mt-auto lg:mt-0 inline-flex items-center justify-center px-7 py-3 rounded-full font-medium text-base transition-all duration-300 border-2 border-transparent bg-accent text-white shadow-md hover:bg-accent-hover hover:-translate-y-0.5 hover:shadow-lg lg:font-body">Call Now</a>
             </nav>
         </div>
     </header>
 
     <main>
         <!-- Hero Section -->
-        <section id="home" class="hero section">
-            <div class="hero-bg"></div>
-            <div class="container hero-container">
-                <div class="hero-content reveal">
-                    <span class="subtitle">Welcome to Mallu's Corner</span>
-                    <h1 class="title">Experience the Flavors of <span class="highlight">Kerala</span></h1>
-                    <p class="description">Discover our unique blend of Kerala, Chinese, and Arabic cuisine in a warm, inviting atmosphere. Join us for a culinary journey that delights every palate.</p>
-                    <div class="hero-buttons">
-                        <a href="#menu" class="btn btn-primary">View Full Menu</a>
-                        <a href="tel:078430307" class="btn btn-outline">Order Takeaway</a>
+        <section id="home" class="relative min-h-screen flex items-center pt-20 text-white overflow-hidden py-20 md:py-28">
+            <div class="absolute inset-0 hero-bg -z-10"></div>
+            <div class="w-full max-w-7xl mx-auto px-5 flex flex-col">
+                <div class="max-w-[600px] text-center mx-auto reveal">
+                    <span class="block text-gold font-semibold tracking-[2px] uppercase mb-4 text-sm md:text-base">Welcome to Mallu's Corner</span>
+                    <h1 class="text-4xl md:text-5xl lg:text-slate-100 font-heading leading-tight mb-5 !text-white">Experience the Flavors of <span class="text-gold">Kerala</span></h1>
+                    <p class="text-[1.1rem] mb-8 opacity-90 leading-relaxed font-light">Discover our unique blend of Kerala, Chinese, and Arabic cuisine in a warm, inviting atmosphere. Join us for a culinary journey that delights every palate.</p>
+                    <div class="flex flex-col md:flex-row gap-4 justify-center">
+                        <a href="#menu" class="inline-flex items-center justify-center px-7 py-3 rounded-full font-medium text-base transition-all duration-300 border-2 border-transparent bg-accent text-white shadow-md hover:bg-accent-hover hover:-translate-y-0.5 hover:shadow-lg">View Full Menu</a>
+                        <a href="tel:078430307" class="inline-flex items-center justify-center px-7 py-3 rounded-full font-medium text-base transition-all duration-300 border-2 border-white text-white hover:bg-white hover:text-primary">Order Takeaway</a>
                     </div>
                 </div>
             </div>
-            <a href="#about" class="scroll-down" aria-label="Scroll down">↓</a>
+            <a href="#about" class="absolute bottom-8 left-1/2 -translate-x-1/2 text-white text-2xl animate-bounce" aria-label="Scroll down">↓</a>
         </section>
 
         <!-- About Section -->
-        <section id="about" class="about section bg-light">
-            <div class="container about-container">
-                <div class="about-image reveal">
-                    <img src="https://images.unsplash.com/photo-1589187151003-0dd55769239b?auto=format&fit=crop&w=800&q=80" alt="Authentic Kerala Spices and Food" class="main-img">
-                    <div class="experience-badge">
-                        <span class="stars">★★★★★</span>
-                        <span class="text">Rated 5 Stars by Customers</span>
+        <section id="about" class="py-20 md:py-28 bg-bg-alt">
+            <div class="w-full max-w-7xl mx-auto px-5 flex flex-col md:flex-row gap-10 md:items-center">
+                <div class="relative flex-1 reveal">
+                    <img src="https://images.unsplash.com/photo-1589187151003-0dd55769239b?auto=format&fit=crop&w=800&q=80" alt="Authentic Kerala Spices and Food" class="rounded-[24px] shadow-xl w-full object-cover">
+                    <div class="absolute -bottom-5 right-4 md:right-10 bg-gold text-primary p-4 md:py-4 md:px-6 rounded-2xl shadow-lg text-center">
+                        <span class="block text-lg md:text-xl tracking-widest font-bold">★★★★★</span>
+                        <span class="font-semibold text-xs md:text-sm uppercase tracking-wide">Rated 5 Stars</span>
                     </div>
                 </div>
-                <div class="about-content reveal delay-1">
-                    <span class="section-tag">Our Heritage</span>
-                    <h2 class="section-title">A Symphony of Spices in Hamilton</h2>
-                    <p>At Mallu's Corner, we don't just serve food; we serve a piece of our home. Every dish is a tribute to the rich culinary legacy of Kerala, meticulously prepared with hand-picked spices and traditional techniques.</p>
-                    <p>Whether you're craving authentic South Indian delicacies, perfectly spiced Chinese fusion, or aromatic Arabic dishes, our masterful chefs ensure an unforgettable experience.</p>
-                    <ul class="features-list">
-                        <li>
-                            <span class="icon">🌿</span> Authentic Kerala Spices
+                <div class="flex-1 reveal delay-1 mt-8 md:mt-0">
+                    <span class="inline-block text-accent font-semibold uppercase tracking-[2px] text-[0.85rem] mb-3">Our Heritage</span>
+                    <h2 class="text-3xl md:text-4xl lg:text-[2.8rem] font-heading text-primary leading-tight mb-6">A Symphony of Spices in Hamilton</h2>
+                    <p class="text-gray-600 mb-4 text-[1.05rem] leading-relaxed">At Mallu's Corner, we don't just serve food; we serve a piece of our home. Every dish is a tribute to the rich culinary legacy of Kerala, meticulously prepared with hand-picked spices and traditional techniques.</p>
+                    <p class="text-gray-600 mb-8 text-[1.05rem] leading-relaxed">Whether you're craving authentic South Indian delicacies, perfectly spiced Chinese fusion, or aromatic Arabic dishes, our masterful chefs ensure an unforgettable experience.</p>
+                    <ul class="flex flex-col gap-4">
+                        <li class="flex items-center gap-4 font-medium text-primary text-[1.05rem]">
+                            <span class="bg-bg-main w-11 h-11 flex items-center justify-center rounded-full shadow-sm text-lg">🌿</span> Authentic Kerala Spices
                         </li>
-                        <li>
-                            <span class="icon">🌶️</span> Indo-Chinese Fusion
+                        <li class="flex items-center gap-4 font-medium text-primary text-[1.05rem]">
+                            <span class="bg-bg-main w-11 h-11 flex items-center justify-center rounded-full shadow-sm text-lg">🌶️</span> Indo-Chinese Fusion
                         </li>
-                        <li>
-                            <span class="icon">👨‍🍳</span> Expert Regional Chefs
+                        <li class="flex items-center gap-4 font-medium text-primary text-[1.05rem]">
+                            <span class="bg-bg-main w-11 h-11 flex items-center justify-center rounded-full shadow-sm text-lg">👨‍🍳</span> Expert Regional Chefs
                         </li>
                     </ul>
                 </div>
@@ -92,18 +92,18 @@
         </section>
 
         <!-- Menu Section -->
-        <section id="menu" class="menu section">
-            <div class="container">
-                <div class="section-header text-center reveal">
-                    <span class="section-tag">Taste the Tradition</span>
-                    <h2 class="section-title">Our Food Menu</h2>
-                    <p class="section-desc">Indulge in our vibrant menu featuring authentic Kerala flavors and eclectic cuisine.</p>
+        <section id="menu" class="py-20 md:py-28 bg-bg-main">
+            <div class="w-full max-w-7xl mx-auto px-5">
+                <div class="text-center mb-12 reveal">
+                    <span class="inline-block text-accent font-semibold uppercase tracking-[2px] text-[0.85rem] mb-3">Taste the Tradition</span>
+                    <h2 class="text-3xl md:text-4xl lg:text-[3.2rem] font-heading text-primary leading-tight mb-6">Our Food Menu</h2>
+                    <p class="text-gray-500 max-w-[600px] mx-auto text-[1.1rem]">Indulge in our vibrant menu featuring authentic Kerala flavors and eclectic cuisine.</p>
                 </div>
 
-                <div class="menu-wrapper reveal delay-1">
-                    <!-- Mobile Category Select (Visible only on small screens) -->
-                    <div class="mobile-category-select hide-desktop">
-                        <select id="mobile-menu-select" aria-label="Select Menu Category">
+                <div class="reveal delay-1">
+                    <!-- Mobile Category Select -->
+                    <div class="block lg:hidden mb-8">
+                        <select id="mobile-menu-select" aria-label="Select Menu Category" class="w-full p-4 border border-black/10 rounded-2xl bg-primary text-white text-[1.1rem] font-body font-medium outline-none shadow-sm appearance-none">
                             <option value="chicken">Chicken</option>
                             <option value="beef">Beef</option>
                             <option value="veg">Vegetarian</option>
@@ -119,22 +119,22 @@
                     </div>
 
                     <!-- Desktop Tabs -->
-                    <div class="menu-tabs hide-mobile" id="menu-tabs">
-                        <button class="tab-btn active" data-category="chicken">Chicken</button>
-                        <button class="tab-btn" data-category="beef">Beef</button>
-                        <button class="tab-btn" data-category="veg">Vegetarian</button>
-                        <button class="tab-btn" data-category="seafood">Sea Food</button>
-                        <button class="tab-btn" data-category="pork">Pork</button>
-                        <button class="tab-btn" data-category="rice">Rice & Biriyani</button>
-                        <button class="tab-btn" data-category="bread">Bread</button>
-                        <button class="tab-btn" data-category="family">Family Pack</button>
-                        <button class="tab-btn" data-category="combos">Combo Deals</button>
-                        <button class="tab-btn" data-category="specials">Specials</button>
-                        <button class="tab-btn" data-category="drinks">Hot Drinks</button>
+                    <div class="hidden lg:flex flex-wrap justify-center gap-3 mb-10" id="menu-tabs">
+                        <button class="tab-btn active px-6 py-2.5 bg-transparent border-2 border-primary text-primary font-body font-semibold rounded-full cursor-pointer transition-colors hover:bg-primary hover:text-white [&.active]:bg-primary [&.active]:text-white" data-category="chicken">Chicken</button>
+                        <button class="tab-btn px-6 py-2.5 bg-transparent border-2 border-primary text-primary font-body font-semibold rounded-full cursor-pointer transition-colors hover:bg-primary hover:text-white [&.active]:bg-primary [&.active]:text-white" data-category="beef">Beef</button>
+                        <button class="tab-btn px-6 py-2.5 bg-transparent border-2 border-primary text-primary font-body font-semibold rounded-full cursor-pointer transition-colors hover:bg-primary hover:text-white [&.active]:bg-primary [&.active]:text-white" data-category="veg">Vegetarian</button>
+                        <button class="tab-btn px-6 py-2.5 bg-transparent border-2 border-primary text-primary font-body font-semibold rounded-full cursor-pointer transition-colors hover:bg-primary hover:text-white [&.active]:bg-primary [&.active]:text-white" data-category="seafood">Sea Food</button>
+                        <button class="tab-btn px-6 py-2.5 bg-transparent border-2 border-primary text-primary font-body font-semibold rounded-full cursor-pointer transition-colors hover:bg-primary hover:text-white [&.active]:bg-primary [&.active]:text-white" data-category="pork">Pork</button>
+                        <button class="tab-btn px-6 py-2.5 bg-transparent border-2 border-primary text-primary font-body font-semibold rounded-full cursor-pointer transition-colors hover:bg-primary hover:text-white [&.active]:bg-primary [&.active]:text-white" data-category="rice">Rice & Biriyani</button>
+                        <button class="tab-btn px-6 py-2.5 bg-transparent border-2 border-primary text-primary font-body font-semibold rounded-full cursor-pointer transition-colors hover:bg-primary hover:text-white [&.active]:bg-primary [&.active]:text-white" data-category="bread">Bread</button>
+                        <button class="tab-btn px-6 py-2.5 bg-transparent border-2 border-primary text-primary font-body font-semibold rounded-full cursor-pointer transition-colors hover:bg-primary hover:text-white [&.active]:bg-primary [&.active]:text-white" data-category="family">Family Pack</button>
+                        <button class="tab-btn px-6 py-2.5 bg-transparent border-2 border-primary text-primary font-body font-semibold rounded-full cursor-pointer transition-colors hover:bg-primary hover:text-white [&.active]:bg-primary [&.active]:text-white" data-category="combos">Combo Deals</button>
+                        <button class="tab-btn px-6 py-2.5 bg-transparent border-2 border-primary text-primary font-body font-semibold rounded-full cursor-pointer transition-colors hover:bg-primary hover:text-white [&.active]:bg-primary [&.active]:text-white" data-category="specials">Specials</button>
+                        <button class="tab-btn px-6 py-2.5 bg-transparent border-2 border-primary text-primary font-body font-semibold rounded-full cursor-pointer transition-colors hover:bg-primary hover:text-white [&.active]:bg-primary [&.active]:text-white" data-category="drinks">Hot Drinks</button>
                     </div>
 
                     <!-- Menu Grid -->
-                    <div class="menu-grid" id="menu-grid">
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-5" id="menu-grid">
                         <!-- Populated by JavaScript -->
                     </div>
                 </div>
@@ -142,82 +142,82 @@
         </section>
 
         <!-- Call to Action / Catering -->
-        <section class="catering section bg-dark text-center">
-            <div class="container reveal">
-                <h2 class="section-title text-light">Planning an Event?</h2>
-                <p class="section-desc text-light">We offer catering services for all types of events. Let us bring the authentic flavors of Kerala to your special occasion.</p>
-                <a href="#contact" class="btn btn-primary">Inquire About Catering</a>
+        <section class="py-20 md:py-24 bg-primary text-center">
+            <div class="w-full max-w-7xl mx-auto px-5 reveal">
+                <h2 class="text-3xl md:text-4xl lg:text-[3.2rem] font-heading !text-white leading-tight mb-4">Planning an Event?</h2>
+                <p class="text-white/80 max-w-[600px] mx-auto text-[1.1rem] mb-8">We offer catering services for all types of events. Let us bring the authentic flavors of Kerala to your special occasion.</p>
+                <a href="#contact" class="inline-flex items-center justify-center px-7 py-3 rounded-full font-medium text-base transition-all duration-300 border-2 border-transparent bg-accent text-white shadow-md hover:bg-accent-hover hover:-translate-y-0.5 hover:shadow-lg">Inquire About Catering</a>
             </div>
         </section>
 
         <!-- Gallery Section -->
-        <section id="gallery" class="gallery section bg-light">
-            <div class="container">
-                <div class="section-header text-center reveal">
-                    <span class="section-tag">Visual Delight</span>
-                    <h2 class="section-title">Our Gallery</h2>
+        <section id="gallery" class="py-20 md:py-28 bg-bg-alt">
+            <div class="w-full max-w-7xl mx-auto px-5">
+                <div class="text-center mb-12 reveal">
+                    <span class="inline-block text-accent font-semibold uppercase tracking-[2px] text-[0.85rem] mb-3">Visual Delight</span>
+                    <h2 class="text-3xl md:text-4xl lg:text-[3.2rem] font-heading text-primary leading-tight mb-6">Our Gallery</h2>
                 </div>
-                <div class="gallery-grid">
-                    <img src="https://images.unsplash.com/photo-1593432316892-10bb4f131a4d?auto=format&fit=crop&w=600&q=80" alt="Kerala Chicken Dish" class="reveal">
-                    <img src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&w=600&q=80" alt="Fresh Ingredients" class="reveal delay-1">
-                    <img src="https://images.unsplash.com/photo-1589187151003-0dd55769239b?auto=format&fit=crop&w=600&q=80" alt="Spices" class="reveal delay-2">
-                    <img src="https://images.unsplash.com/photo-1606491956689-2ea8c5119c85?auto=format&fit=crop&w=600&q=80" alt="Kerala Meal" class="reveal">
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                    <img src="https://images.unsplash.com/photo-1593432316892-10bb4f131a4d?auto=format&fit=crop&w=600&q=80" alt="Kerala Chicken Dish" class="rounded-2xl object-cover aspect-square shadow-sm w-full reveal">
+                    <img src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&w=600&q=80" alt="Fresh Ingredients" class="rounded-2xl object-cover aspect-square shadow-sm w-full reveal delay-1">
+                    <img src="https://images.unsplash.com/photo-1589187151003-0dd55769239b?auto=format&fit=crop&w=600&q=80" alt="Spices" class="rounded-2xl object-cover aspect-square shadow-sm w-full reveal delay-2">
+                    <img src="https://images.unsplash.com/photo-1606491956689-2ea8c5119c85?auto=format&fit=crop&w=600&q=80" alt="Kerala Meal" class="rounded-2xl object-cover aspect-square shadow-sm w-full reveal delay-1">
                 </div>
             </div>
         </section>
 
         <!-- Reviews Section -->
-        <section class="reviews section">
-            <div class="container">
-                <div class="section-header text-center reveal">
-                    <span class="section-tag">Testimonials</span>
-                    <h2 class="section-title">What Our Customers Say</h2>
+        <section class="py-20 md:py-28 bg-bg-main border-y border-black/5">
+            <div class="w-full max-w-7xl mx-auto px-5">
+                <div class="text-center mb-12 reveal">
+                    <span class="inline-block text-accent font-semibold uppercase tracking-[2px] text-[0.85rem] mb-3">Testimonials</span>
+                    <h2 class="text-3xl md:text-4xl lg:text-[3.2rem] font-heading text-primary leading-tight mb-6">What Our Customers Say</h2>
                 </div>
-                <div class="reviews-grid">
-                    <div class="review-card reveal">
-                        <div class="stars">★★★★★</div>
-                        <p class="review-text">"We ordered biryani for 25 people, and overall, the experience was great. The food was flavorful and well-prepared, and everyone enjoyed it. Would definitely consider ordering again!"</p>
-                        <h4 class="reviewer">- Basil Paul</h4>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div class="bg-bg-alt p-8 md:p-10 rounded-3xl shadow-sm reveal border border-gold/10">
+                        <div class="text-gold mb-4 text-xl tracking-widest">★★★★★</div>
+                        <p class="italic text-gray-500 mb-6 text-lg">"We ordered biryani for 25 people, and overall, the experience was great. The food was flavorful and well-prepared, and everyone enjoyed it. Would definitely consider ordering again!"</p>
+                        <h4 class="text-primary font-heading font-semibold text-lg">- Basil Paul</h4>
                     </div>
-                    <div class="review-card reveal delay-1">
-                        <div class="stars">★★★★★</div>
-                        <p class="review-text">"Customer friendly staff and tasty food. Order a takeaway Chilli-pork with Paratha. Very nice packing. The food was so delicious. People who love spicy food can try this. Enjoyed."</p>
-                        <h4 class="reviewer">- Denn P</h4>
+                    <div class="bg-bg-alt p-8 md:p-10 rounded-3xl shadow-sm reveal delay-1 border border-gold/10">
+                        <div class="text-gold mb-4 text-xl tracking-widest">★★★★★</div>
+                        <p class="italic text-gray-500 mb-6 text-lg">"Customer friendly staff and tasty food. Order a takeaway Chilli-pork with Paratha. Very nice packing. The food was so delicious. People who love spicy food can try this. Enjoyed."</p>
+                        <h4 class="text-primary font-heading font-semibold text-lg">- Denn P</h4>
                     </div>
                 </div>
             </div>
         </section>
 
         <!-- Contact Section -->
-        <section id="contact" class="contact section border-top">
-            <div class="container">
-                <div class="contact-grid">
-                    <div class="contact-info reveal">
-                        <span class="section-tag">Get In Touch</span>
-                        <h2 class="section-title">Visit Our Kitchen</h2>
-                        <p class="contact-desc">Experience our warm ambiance or grab a quick takeaway. We are always happy to serve you.</p>
+        <section id="contact" class="py-20 md:py-28 bg-bg-main border-t border-black/5">
+            <div class="w-full max-w-7xl mx-auto px-5">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
+                    <div class="reveal">
+                        <span class="inline-block text-accent font-semibold uppercase tracking-[2px] text-[0.85rem] mb-3">Get In Touch</span>
+                        <h2 class="text-3xl md:text-4xl lg:text-[3.2rem] font-heading text-primary leading-tight mb-6">Visit Our Kitchen</h2>
+                        <p class="text-gray-500 text-[1.1rem] mb-10">Experience our warm ambiance or grab a quick takeaway. We are always happy to serve you.</p>
                         
-                        <div class="info-blocks">
-                            <div class="info-block">
-                                <h4>📍 Location</h4>
-                                <p>147/149 Ohaupo Road,<br>Melville, Hamilton 3206</p>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
+                            <div>
+                                <h4 class="text-primary font-heading text-xl mb-2">📍 Location</h4>
+                                <p class="text-gray-700">147/149 Ohaupo Road,<br>Melville, Hamilton 3206</p>
                             </div>
-                            <div class="info-block">
-                                <h4>📞 Contact</h4>
-                                <p><a href="tel:078430307">+64 07 843 0307</a></p>
-                                <p><a href="tel:02108397130">+64 21 0839 7130 (Jinil)</a></p>
+                            <div>
+                                <h4 class="text-primary font-heading text-xl mb-2">📞 Contact</h4>
+                                <p><a href="tel:078430307" class="text-gray-700 hover:text-accent transition-colors">+64 07 843 0307</a></p>
+                                <p><a href="tel:02108397130" class="text-gray-700 hover:text-accent transition-colors">+64 21 0839 7130 (Jinil)</a></p>
                             </div>
-                            <div class="info-block">
-                                <h4>📧 Email</h4>
-                                <p><a href="mailto:malluscorner.nz@gmail.com">malluscorner.nz@gmail.com</a></p>
+                            <div>
+                                <h4 class="text-primary font-heading text-xl mb-2">📧 Email</h4>
+                                <p><a href="mailto:malluscorner.nz@gmail.com" class="text-gray-700 hover:text-accent transition-colors">malluscorner.nz@gmail.com</a></p>
                             </div>
-                            <div class="info-block">
-                                <h4>🕒 Hours of Operation</h4>
-                                <p>Open 7 Days a week<br>11:00 AM – 9:00 PM</p>
+                            <div>
+                                <h4 class="text-primary font-heading text-xl mb-2">🕒 Hours of Operation</h4>
+                                <p class="text-gray-700">Open 7 Days a week<br>11:00 AM – 9:00 PM</p>
                             </div>
                         </div>
                     </div>
-                    <div class="contact-map reveal delay-1">
+                    <div class="h-[350px] md:h-[450px] rounded-3xl overflow-hidden shadow-lg reveal delay-1 border-2 border-primary/5">
                         <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3153.2536838384814!2d175.2758!3d-37.8105!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6d6d190000000001%3A0x0!2zMTQ3IE9oYXVwbyBSZCwgTWVsdmlsbGUsIEhhbWlsdG9uIDMyMDYsIE5ldyBaZWFsYW5k!5e0!3m2!1sen!2snz!4v1620000000000" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" title="Mallu's Corner Location"></iframe>
                     </div>
                 </div>
@@ -225,18 +225,18 @@
         </section>
     </main>
 
-    <footer class="footer">
-        <div class="container footer-content text-center">
-            <img src="https://assets.zyrosite.com/AoPvRzBqp7C1DEXR/ai-logo-mk3zR0ZJyRI9L5j4.svg" alt="Footer Logo" class="footer-logo">
-            <div class="social-links">
-                <a href="https://www.facebook.com/share/15VG1eYjHH/" target="_blank" aria-label="Facebook">Facebook</a>
-                <a href="https://www.instagram.com/mallus_corner.nz" target="_blank" aria-label="Instagram">Instagram</a>
+    <footer class="bg-primary text-white py-16 text-center">
+        <div class="w-full max-w-7xl mx-auto px-5">
+            <img src="https://assets.zyrosite.com/AoPvRzBqp7C1DEXR/ai-logo-mk3zR0ZJyRI9L5j4.svg" alt="Footer Logo" class="h-16 mx-auto mb-6 brightness-0 invert">
+            <div class="flex justify-center gap-5 mb-6">
+                <a href="https://www.facebook.com/share/15VG1eYjHH/" target="_blank" aria-label="Facebook" class="text-gold uppercase font-medium tracking-wide hover:text-white transition-colors">Facebook</a>
+                <a href="https://www.instagram.com/mallus_corner.nz" target="_blank" aria-label="Instagram" class="text-gold uppercase font-medium tracking-wide hover:text-white transition-colors">Instagram</a>
             </div>
-            <p class="copyright">&copy; 2024 Mallu's Corner Restaurant. All rights reserved.</p>
+            <p class="text-white/60 text-sm">&copy; 2024 Mallu's Corner Restaurant. All rights reserved.</p>
         </div>
     </footer>
 
-    <button id="back-to-top" class="back-to-top" aria-label="Back to top">↑</button>
+    <button id="back-to-top" class="fixed bottom-5 right-5 w-12 h-12 bg-accent text-white rounded-full text-xl flex items-center justify-center shadow-lg opacity-0 invisible transition-all duration-300 z-[99] hover:bg-accent-hover hover:-translate-y-1 [&.show]:opacity-100 [&.show]:visible" aria-label="Back to top">↑</button>
 
     <script src="./script.js"></script>
 </body>

@@ -95,14 +95,14 @@ document.addEventListener('DOMContentLoaded', () => {
         
         items.forEach((item, index) => {
             const el = document.createElement('div');
-            el.className = 'menu-item reveal';
+            el.className = 'reveal bg-bg-main p-6 rounded-2xl shadow-[0_4px_15px_rgba(0,0,0,0.04)] flex justify-between items-center border border-gold/20 relative overflow-hidden transition-all duration-300 z-10 hover:-translate-y-1.5 hover:shadow-[0_8px_25px_rgba(30,74,48,0.1)] hover:border-gold group before:absolute before:top-0 before:left-0 before:h-full before:w-1 before:bg-gold before:transition-all before:duration-300 before:-z-10 group-hover:before:w-full group-hover:before:opacity-[0.05]';
             el.style.transitionDelay = `${index * 0.05}s`;
             
-            const priceHtml = item.price ? `<span class="menu-price">${item.price}</span>` : '';
+            const priceHtml = item.price ? `<span class="font-bold text-bg-main bg-primary font-body text-[1.1rem] py-2 px-4 rounded-lg shadow-sm">${item.price}</span>` : '';
             
             el.innerHTML = `
-                <div class="menu-info">
-                    <h4>${item.name}</h4>
+                <div>
+                    <h4 class="font-heading font-semibold text-xl tracking-[0.5px] mb-1 text-primary">${item.name}</h4>
                 </div>
                 ${priceHtml}
             `;

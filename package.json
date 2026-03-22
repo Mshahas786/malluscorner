@@ -19,6 +19,8 @@
   "author": "Mallu's Corner",
   "license": "ISC",
   "devDependencies": {
+    "@tailwindcss/vite": "^4.2.2",
+    "tailwindcss": "^4.2.2",
     "vite": "^8.0.0"
   }
 }
