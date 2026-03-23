@@ -14,7 +14,7 @@ export default {
       },
       fontFamily: {
         heading: ['Playfair Display', 'serif'],
-        body: ['Outfit', 'sans-serif'],
+        body: ['-apple-system', 'BlinkMacSystemFont', '"Segoe UI"', 'Roboto', 'Helvetica', 'Arial', 'sans-serif'],
       },
     },
   },
