@@ -13,8 +13,8 @@ export default {
         'bg-alt': "#f1ebd9",
       },
       fontFamily: {
-        heading: ["'Playfair Display'", 'serif'],
-        body: ["'Outfit'", 'sans-serif'],
+        heading: ['Playfair Display', 'serif'],
+        body: ['Outfit', 'sans-serif'],
       },
     },
   },
