@@ -97,12 +97,19 @@ const menuData = {
 };
 ---
 
-<section id="menu" class="py-16 md:py-24 bg-[#faf8f5]">
-    <div class="w-full max-w-6xl mx-auto px-5">
-        <div class="text-center mb-10 reveal">
-            <span class="inline-block text-[#c75438] font-semibold uppercase tracking-[3px] text-xs mb-4">Taste the Tradition</span>
-            <h2 class="text-2xl md:text-3xl lg:text-4xl font-heading text-[#1e4a30] leading-tight mb-4">Our Food Menu</h2>
-            <p class="text-gray-400 max-w-md mx-auto text-[0.95rem]">Authentic Kerala flavours prepared fresh everyday.</p>
+<section id="menu" class="py-16 md:py-24 bg-bg-main relative overflow-hidden">
+    <!-- Subtle kasavu border top -->
+    <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-gold to-transparent opacity-20"></div>
+
+    <div class="w-full max-w-6xl mx-auto px-4 sm:px-6 relative z-10">
+        <div class="text-center mb-12 reveal">
+            <div class="flex items-center justify-center gap-3 mb-4">
+                <div class="w-8 h-[2px] bg-gold/50"></div>
+                <span class="text-accent font-semibold uppercase tracking-[3px] text-xs">Taste the Tradition</span>
+                <div class="w-8 h-[2px] bg-gold/50"></div>
+            </div>
+            <h2 class="text-3xl sm:text-4xl lg:text-5xl font-heading text-primary leading-tight mb-4">Our Food Menu</h2>
+            <p class="text-gray-400 max-w-md mx-auto text-sm sm:text-base">Authentic Kerala flavours prepared fresh everyday.</p>
         </div>
 
         <div class="reveal delay-1">
@@ -111,83 +118,113 @@ const menuData = {
                 <style>
                     #menu-tabs::-webkit-scrollbar { display: none; }
                 </style>
-                {Object.entries(categoryLabels).map(([key, label]) => (
-                    <button class="tab-btn shrink-0 snap-start px-4 py-2 bg-white border border-gray-200 text-gray-600 font-body text-sm font-medium rounded-lg cursor-pointer transition-all duration-200 hover:bg-[#1e4a30] hover:text-white hover:border-[#1e4a30] [&.active]:bg-[#1e4a30] [&.active]:text-white [&.active]:border-[#1e4a30] [&.active]:shadow-md" data-category={key}>
+                {Object.entries(categoryLabels).map(([key, label], index) => (
+                    <button 
+                        class={`tab-btn shrink-0 snap-start px-5 py-2.5 bg-white border border-gold/20 text-gray-600 font-body text-sm font-medium rounded-xl cursor-pointer transition-all duration-300 hover:bg-primary-light hover:text-white hover:border-primary-light hover:shadow-md ${index === 0 ? 'active bg-primary text-white border-primary shadow-md' : ''}`} 
+                        data-category={key}
+                    >
                         {label}
                     </button>
                 ))}
             </div>
 
-            <!-- Menu Grid — Server rendered for initial load, JS for switching -->
+            <!-- Menu Grid — Fast Server Rendered Load -->
             <div id="menu-grid">
-                <!-- Rendered by JS below -->
+                {Object.entries(menuData).map(([cat, items]) => (
+                    items.length > 0 && (
+                        <div class="menu-category-container bg-white rounded-2xl border border-gold/10 shadow-sm overflow-hidden mb-8 transition-opacity duration-300" data-category={cat}>
+                            <div class="bg-primary text-white px-6 py-4 flex items-center justify-between">
+                                <h3 class="font-heading text-lg font-bold">{categoryLabels[cat] || cat}</h3>
+                                <div class="flex items-center gap-2">
+                                    <span class="w-1.5 h-1.5 bg-gold rounded-full"></span>
+                                    <span class="text-white/70 text-xs font-body uppercase tracking-wider">{items.length} items</span>
+                                </div>
+                            </div>
+                            <div class="divide-y divide-gray-50">
+                                {items.map((item) => (
+                                    <div class="flex items-center justify-between px-6 py-4 hover:bg-bg-alt/50 transition-colors group">
+                                        <div class="flex items-center gap-3">
+                                            <span class="w-1.5 h-1.5 bg-gold rounded-full opacity-40 group-hover:opacity-100 transition-opacity shrink-0"></span>
+                                            <span class="font-body text-gray-700 font-medium text-sm sm:text-[0.95rem]">{item.name}</span>
+                                        </div>
+                                        {item.price && (
+                                            <span class="font-heading font-semibold text-primary text-sm sm:text-base whitespace-nowrap ml-4">{item.price}</span>
+                                        )}
+                                    </div>
+                                ))}
+                            </div>
+                        </div>
+                    )
+                ))}
+            </div>
+            
+            <!-- Empty state (hidden by default) -->
+            <div id="empty-state" class="hidden text-center py-12">
+                <span class="text-4xl block mb-4">🍽️</span>
+                <h3 class="font-heading text-xl text-primary font-bold mb-2">No items found</h3>
+                <p class="text-gray-500 text-sm">Please select another category.</p>
             </div>
         </div>
     </div>
 </section>
 
-<script define:vars={{ menuData, categoryLabels }}>
-    const menuGrid = document.getElementById('menu-grid');
-    const tabBtns = document.querySelectorAll('.tab-btn');
+<style>
+    /* Active state for tab buttons */
+    .tab-btn.active {
+        background-color: var(--color-primary, #1e4a30) !important;
+        color: white !important;
+        border-color: var(--color-primary, #1e4a30) !important;
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    }
+</style>
 
-    function renderMenu(category) {
-        if (!menuGrid) return;
-        menuGrid.innerHTML = '';
-        
-        const categoriesToRender = category === 'all' ? Object.keys(menuData) : [category];
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const tabBtns = document.querySelectorAll('.tab-btn');
+        const categoryContainers = document.querySelectorAll('.menu-category-container');
+        const emptyState = document.getElementById('empty-state');
 
-        categoriesToRender.forEach(cat => {
-            const items = menuData[cat] || [];
-            if (items.length === 0) return;
-
-            // Create the table-like container
-            const container = document.createElement('div');
-            container.className = 'bg-white rounded-2xl border border-gray-100 shadow-sm overflow-hidden mb-8';
-
-            // Category header
-            const header = document.createElement('div');
-            header.className = 'bg-[#1e4a30] text-white px-6 py-4 flex items-center justify-between';
-            header.innerHTML = `
-                <h3 class="font-heading text-lg font-bold">${categoryLabels[cat] || cat}</h3>
-                <span class="text-white/60 text-xs font-body">${items.length} items</span>
-            `;
-            container.appendChild(header);
-
-            items.forEach((item, index) => {
-                const row = document.createElement('div');
-                row.className = 'flex items-center justify-between px-6 py-4 border-b border-gray-50 last:border-b-0 hover:bg-[#faf8f5] transition-colors group';
-
-                const left = document.createElement('div');
-                left.className = 'flex items-center gap-3';
-                left.innerHTML = `
-                    <span class="w-1.5 h-1.5 bg-[#dca43b] rounded-full opacity-60 group-hover:opacity-100 transition-opacity shrink-0"></span>
-                    <span class="font-body text-gray-700 font-medium text-[0.95rem]">${item.name}</span>
-                `;
-                row.appendChild(left);
-
-                if (item.price) {
-                    const price = document.createElement('span');
-                    price.className = 'font-body font-bold text-[#1e4a30] text-sm whitespace-nowrap ml-4';
-                    price.textContent = item.price;
-                    row.appendChild(price);
+        function showCategory(selectedCategory) {
+            let hasVisibleItems = false;
+            
+            categoryContainers.forEach((container) => {
+                const isAll = selectedCategory === 'all';
+                const matchesCategory = container.getAttribute('data-category') === selectedCategory;
+                
+                if (isAll || matchesCategory) {
+                    container.style.display = 'block';
+                    // slight delay for animation effect
+                    setTimeout(() => container.style.opacity = '1', 10);
+                    hasVisibleItems = true;
+                } else {
+                    container.style.opacity = '0';
+                    setTimeout(() => container.style.display = 'none', 300); // match transition duration
                 }
-                container.appendChild(row);
             });
 
-            menuGrid.appendChild(container);
-        });
-    }
+            if (emptyState) {
+                if (hasVisibleItems) {
+                    emptyState.style.display = 'none';
+                } else {
+                    setTimeout(() => emptyState.style.display = 'block', 300);
+                }
+            }
+        }
 
-    tabBtns.forEach(btn => {
-        btn.addEventListener('click', (e) => {
-            tabBtns.forEach(t => t.classList.remove('active'));
-            e.currentTarget.classList.add('active');
-            const category = e.currentTarget.dataset.category;
-            renderMenu(category);
+        tabBtns.forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                // Remove active class from all
+                tabBtns.forEach(t => t.classList.remove('active', 'bg-primary', 'text-white', 'border-primary', 'shadow-md'));
+                
+                // Add active class dynamically using tailwind classes matching initial render
+                const target = e.currentTarget;
+                target.classList.add('active'); // CSS based active state for extra safety
+                
+                const category = target.getAttribute('data-category');
+                showCategory(category);
+            });
         });
+        
+        // Initial state is already 'all' because HTML contains everything, so no JS needed on mount
     });
-
-    // Initial render
-    if (tabBtns.length > 0) tabBtns[0].classList.add('active');
-    renderMenu('all');
 </script>
