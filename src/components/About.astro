@@ -1,28 +1,67 @@
 ---
 ---
-<section id="about" class="py-16 md:py-24 bg-white">
-    <div class="w-full max-w-6xl mx-auto px-5 flex flex-col md:flex-row gap-12 md:items-center">
-        <div class="relative flex-1 reveal">
-            <img 
-                src="/images/kerala-chef-illustration.png" 
-                alt="Animated Traditional Kerala Chef Cooking" 
-                class="rounded-3xl shadow-xl w-full object-cover aspect-[4/3] hover:scale-105 transition-transform duration-500"
-                loading="lazy"
-            />
-            <div class="absolute -bottom-4 right-4 md:right-8 bg-[#dca43b] text-[#1e4a30] py-3 px-5 rounded-2xl shadow-lg text-center transform hover:-translate-y-2 transition-transform duration-300">
-                <span class="block text-lg tracking-widest font-bold">★★★★★</span>
-                <span class="font-semibold text-xs uppercase tracking-wide">Rated 5 Stars</span>
+<section id="about" class="py-16 md:py-28 bg-white relative overflow-hidden">
+    <!-- Subtle decorative border - Kerala kasavu (gold border) inspired -->
+    <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-gold to-transparent"></div>
+    
+    <div class="w-full max-w-6xl mx-auto px-4 sm:px-6">
+        <div class="flex flex-col lg:flex-row gap-10 lg:gap-16 items-center">
+            <!-- Image Side -->
+            <div class="relative flex-1 w-full reveal">
+                <div class="relative rounded-3xl overflow-hidden shadow-2xl group">
+                    <img 
+                        src="/images/kerala-chef-illustration.png" 
+                        alt="Traditional Kerala Chef Cooking" 
+                        class="w-full object-cover aspect-[4/3] group-hover:scale-105 transition-transform duration-700"
+                        loading="lazy"
+                    />
+                    <!-- Kerala pattern overlay on hover -->
+                    <div class="absolute inset-0 bg-gradient-to-t from-primary/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                </div>
+                <!-- Floating badge -->
+                <div class="absolute -bottom-4 -right-2 sm:right-4 md:right-8 bg-gold text-primary py-3 px-6 rounded-2xl shadow-xl text-center transform hover:-translate-y-2 transition-transform duration-300">
+                    <span class="block text-lg tracking-widest font-bold">★★★★★</span>
+                    <span class="font-semibold text-xs uppercase tracking-wide">Rated 5 Stars</span>
+                </div>
+                <!-- Decorative spice -->
+                <div class="hidden md:block absolute -top-6 -left-6 w-16 h-16 bg-bg-alt rounded-full flex items-center justify-center text-3xl shadow-lg border-2 border-gold/20">
+                    🌿
+                </div>
             </div>
-        </div>
-        <div class="flex-1 reveal delay-1">
-            <span class="inline-block text-[#c75438] font-semibold uppercase tracking-[3px] text-xs mb-4">Our Heritage</span>
-            <h2 class="text-2xl md:text-3xl lg:text-4xl font-heading text-[#1e4a30] leading-tight mb-5">A Symphony of Spices in Hamilton</h2>
-            <p class="text-gray-500 mb-4 text-[0.95rem] leading-relaxed">At Mallu's Corner, we don't just serve food — we serve a piece of our home. Every dish is a tribute to the rich culinary legacy of Kerala, prepared with hand-picked spices.</p>
-            <p class="text-gray-500 mb-8 text-[0.95rem] leading-relaxed">Whether you crave authentic South Indian delicacies, perfectly spiced Chinese fusion, or aromatic Arabic dishes, our chefs ensure an unforgettable experience.</p>
-            <div class="flex flex-wrap gap-3">
-                <span class="inline-flex items-center gap-2 bg-[#f1ebd9] text-[#1e4a30] px-4 py-2 rounded-full text-sm font-medium">🌿 Kerala Spices</span>
-                <span class="inline-flex items-center gap-2 bg-[#f1ebd9] text-[#1e4a30] px-4 py-2 rounded-full text-sm font-medium">🌶️ Indo-Chinese</span>
-                <span class="inline-flex items-center gap-2 bg-[#f1ebd9] text-[#1e4a30] px-4 py-2 rounded-full text-sm font-medium">👨‍🍳 Expert Chefs</span>
+            
+            <!-- Content Side -->
+            <div class="flex-1 reveal delay-1">
+                <div class="flex items-center gap-3 mb-4">
+                    <div class="w-12 h-[2px] bg-gold"></div>
+                    <span class="text-accent font-semibold uppercase tracking-[3px] text-xs">Our Heritage</span>
+                </div>
+                
+                <h2 class="text-3xl sm:text-4xl lg:text-[2.75rem] font-heading text-primary leading-tight mb-6">
+                    A Symphony of<br class="hidden sm:block"> <span class="text-accent italic">Spices</span> in Hamilton
+                </h2>
+                
+                <p class="text-gray-500 mb-4 text-base leading-relaxed">
+                    At Mallu's Corner, we don't just serve food — we serve a piece of our home. Every dish is a tribute to the rich culinary legacy of Kerala, prepared with hand-picked spices.
+                </p>
+                <p class="text-gray-500 mb-8 text-base leading-relaxed">
+                    Whether you crave authentic South Indian delicacies, perfectly spiced Chinese fusion, or aromatic Arabic dishes, our chefs ensure an unforgettable experience.
+                </p>
+                
+                <!-- Feature tags with Kerala motifs -->
+                <div class="flex flex-wrap gap-3">
+                    <span class="inline-flex items-center gap-2 bg-bg-alt text-primary px-5 py-2.5 rounded-full text-sm font-medium border border-gold/20 hover:border-gold/40 transition-colors">
+                        🌿 Kerala Spices
+                    </span>
+                    <span class="inline-flex items-center gap-2 bg-bg-alt text-primary px-5 py-2.5 rounded-full text-sm font-medium border border-gold/20 hover:border-gold/40 transition-colors">
+                        🌶️ Indo-Chinese
+                    </span>
+                    <span class="inline-flex items-center gap-2 bg-bg-alt text-primary px-5 py-2.5 rounded-full text-sm font-medium border border-gold/20 hover:border-gold/40 transition-colors">
+                        👨‍🍳 Expert Chefs
+                    </span>
+                    <span class="inline-flex items-center gap-2 bg-bg-alt text-primary px-5 py-2.5 rounded-full text-sm font-medium border border-gold/20 hover:border-gold/40 transition-colors">
+                        🥥 Fresh Coconut
+                    </span>
+                </div>
             </div>
         </div>
     </div>

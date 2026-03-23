@@ -1,36 +1,66 @@
 ---
 ---
-<section id="gallery" class="py-16 md:py-24 bg-[#f7f4ef]">
-    <div class="w-full max-w-6xl mx-auto px-5">
-        <div class="text-center mb-10 reveal">
-            <span class="inline-block text-[#c75438] font-semibold uppercase tracking-[3px] text-xs mb-4">Visual Delight</span>
-            <h2 class="text-2xl md:text-3xl lg:text-4xl font-heading text-[#1e4a30] leading-tight mb-4">Our Gallery</h2>
+<section id="gallery" class="py-16 md:py-24 bg-primary relative overflow-hidden">
+    <!-- Pattern overlay -->
+    <div class="absolute inset-0 opacity-[0.03]" style="background-image: url('data:image/svg+xml,%3Csvg width=&quot;40&quot; height=&quot;40&quot; viewBox=&quot;0 0 40 40&quot; xmlns=&quot;http://www.w3.org/2000/svg&quot;%3E%3Cg fill=&quot;%23ffffff&quot; fill-opacity=&quot;1&quot;%3E%3Ccircle cx=&quot;20&quot; cy=&quot;20&quot; r=&quot;2&quot;/%3E%3C/g%3E%3C/svg%3E');"></div>
+    
+    <div class="w-full max-w-6xl mx-auto px-4 sm:px-6 relative z-10">
+        <div class="text-center mb-12 reveal">
+            <div class="flex items-center justify-center gap-3 mb-4">
+                <div class="w-8 h-[2px] bg-gold/50"></div>
+                <span class="text-gold font-semibold uppercase tracking-[3px] text-xs">Visual Delight</span>
+                <div class="w-8 h-[2px] bg-gold/50"></div>
+            </div>
+            <h2 class="text-3xl sm:text-4xl lg:text-5xl font-heading text-white leading-tight mb-4">Our Gallery</h2>
+            <p class="text-white/50 max-w-md mx-auto text-sm sm:text-base">Feast your eyes before you feast your palate</p>
         </div>
-        <div class="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4">
-            <img 
-                src="https://images.pexels.com/photos/2474661/pexels-photo-2474661.jpeg?auto=compress&cs=tinysrgb&w=600" 
-                alt="Kerala Chicken Dish" 
-                class="rounded-2xl object-cover aspect-square shadow-sm w-full reveal"
-                loading="lazy"
-            />
-            <img 
-                src="https://images.pexels.com/photos/1624487/pexels-photo-1624487.jpeg?auto=compress&cs=tinysrgb&w=600" 
-                alt="Indian Spices" 
-                class="rounded-2xl object-cover aspect-square shadow-sm w-full reveal delay-1"
-                loading="lazy"
-            />
-            <img 
-                src="https://images.pexels.com/photos/958545/pexels-photo-958545.jpeg?auto=compress&cs=tinysrgb&w=600" 
-                alt="Traditional Kerala Meal" 
-                class="rounded-2xl object-cover aspect-square shadow-sm w-full reveal delay-2"
-                loading="lazy"
-            />
-            <img 
-                src="https://images.pexels.com/photos/1352270/pexels-photo-1352270.jpeg?auto=compress&cs=tinysrgb&w=600" 
-                alt="Kerala Biriyani" 
-                class="rounded-2xl object-cover aspect-square shadow-sm w-full reveal delay-1"
-                loading="lazy"
-            />
+        
+        <!-- Masonry-style gallery -->
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4">
+            <div class="relative group overflow-hidden rounded-2xl reveal">
+                <img 
+                    src="/images/kerala-spice-market.png" 
+                    alt="Traditional Kerala Spices" 
+                    class="w-full object-cover aspect-square transition-transform duration-700 group-hover:scale-110"
+                    loading="lazy"
+                />
+                <div class="absolute inset-0 bg-gradient-to-t from-primary/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-end p-4">
+                    <span class="text-white font-heading text-sm font-bold">Kerala Spices</span>
+                </div>
+            </div>
+            <div class="relative group overflow-hidden rounded-2xl reveal delay-1">
+                <img 
+                    src="/images/kerala-banana-leaf-meal.png" 
+                    alt="Traditional Kerala Sadya" 
+                    class="w-full object-cover aspect-square transition-transform duration-700 group-hover:scale-110"
+                    loading="lazy"
+                />
+                <div class="absolute inset-0 bg-gradient-to-t from-primary/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-end p-4">
+                    <span class="text-white font-heading text-sm font-bold">Banana Leaf Sadya</span>
+                </div>
+            </div>
+            <div class="relative group overflow-hidden rounded-2xl reveal delay-2">
+                <img 
+                    src="/images/kerala-chef-illustration.png" 
+                    alt="Traditional Kerala Chef" 
+                    class="w-full object-cover aspect-square transition-transform duration-700 group-hover:scale-110"
+                    loading="lazy"
+                />
+                <div class="absolute inset-0 bg-gradient-to-t from-primary/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-end p-4">
+                    <span class="text-white font-heading text-sm font-bold">Our Kitchen</span>
+                </div>
+            </div>
+            <div class="relative group overflow-hidden rounded-2xl reveal delay-1">
+                <img 
+                    src="/images/kerala-backwater-hero.png" 
+                    alt="Kerala Backwaters - God's Own Country" 
+                    class="w-full object-cover aspect-square transition-transform duration-700 group-hover:scale-110"
+                    loading="lazy"
+                />
+                <div class="absolute inset-0 bg-gradient-to-t from-primary/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-end p-4">
+                    <span class="text-white font-heading text-sm font-bold">God's Own Country</span>
+                </div>
+            </div>
         </div>
     </div>
 </section>

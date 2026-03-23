@@ -1,54 +1,92 @@
 ---
 ---
-<header class="fixed top-0 left-0 w-full bg-white/90 backdrop-blur-lg shadow-[0_1px_3px_rgba(0,0,0,0.06)] z-50 transition-all duration-300" id="navbar">
-    <div class="w-full max-w-7xl mx-auto px-5 flex justify-between items-center h-16 md:h-[72px]">
-        <a href="#" class="relative z-[61] flex items-center group">
-            <span class="font-heading text-[#1e4a30] text-xl md:text-2xl font-bold tracking-tight transition-colors group-hover:text-[#c75438]">Mallu's Corner</span>
-        </a>
-        <button class="flex flex-col justify-center items-center gap-[5px] bg-transparent border-none cursor-pointer z-[61] relative w-10 h-10 lg:hidden" aria-label="Toggle menu" id="mobile-menu-btn">
-            <span class="block w-6 h-[2.5px] rounded-full bg-[#1e4a30] transition-all duration-300 origin-center" id="bar1"></span>
-            <span class="block w-6 h-[2.5px] rounded-full bg-[#1e4a30] transition-all duration-300" id="bar2"></span>
-            <span class="block w-6 h-[2.5px] rounded-full bg-[#1e4a30] transition-all duration-300 origin-center" id="bar3"></span>
-        </button>
-        <nav class="fixed inset-0 bg-[#faf8f5] flex flex-col items-center justify-center gap-8 transition-all duration-500 ease-in-out z-[60] opacity-0 pointer-events-none translate-y-[-10px] [&.active]:opacity-100 [&.active]:pointer-events-auto [&.active]:translate-y-0 lg:static lg:bg-transparent lg:flex-row lg:opacity-100 lg:pointer-events-auto lg:gap-8 lg:translate-y-0" id="nav-links">
-            <a href="#home" class="text-[#1e4a30] text-2xl font-body font-semibold lg:text-[0.95rem] lg:font-medium lg:text-gray-600 hover:text-[#c75438] transition-colors">Home</a>
-            <a href="#about" class="text-[#1e4a30] text-2xl font-body font-semibold lg:text-[0.95rem] lg:font-medium lg:text-gray-600 hover:text-[#c75438] transition-colors">Our Story</a>
-            <a href="#menu" class="text-[#1e4a30] text-2xl font-body font-semibold lg:text-[0.95rem] lg:font-medium lg:text-gray-600 hover:text-[#c75438] transition-colors">Menu</a>
-            <a href="#gallery" class="text-[#1e4a30] text-2xl font-body font-semibold lg:text-[0.95rem] lg:font-medium lg:text-gray-600 hover:text-[#c75438] transition-colors">Gallery</a>
-            <a href="#contact" class="text-[#1e4a30] text-2xl font-body font-semibold lg:text-[0.95rem] lg:font-medium lg:text-gray-600 hover:text-[#c75438] transition-colors">Contact</a>
-            <a href="tel:078430307" class="inline-flex items-center justify-center px-7 py-3 rounded-full font-bold text-base bg-[#c75438] text-white shadow-lg hover:bg-[#b0462e] hover:shadow-xl lg:px-5 lg:py-2 lg:text-sm lg:ml-2">📞 Call Now</a>
-        </nav>
+<header class="fixed top-0 left-0 w-full z-50 transition-all duration-300" id="navbar">
+    <div class="bg-primary/95 backdrop-blur-md">
+        <div class="w-full max-w-7xl mx-auto px-4 sm:px-6 flex justify-between items-center h-16 md:h-[72px]">
+            <a href="#" class="relative z-[70] flex items-center gap-2 group">
+                <span class="text-gold text-2xl">🪷</span>
+                <span class="font-heading text-white text-lg sm:text-xl md:text-2xl font-bold tracking-tight transition-colors group-hover:text-gold">Mallu's Corner</span>
+            </a>
+            <!-- Hamburger Button -->
+            <button 
+                class="relative z-[70] flex flex-col justify-center items-center w-10 h-10 cursor-pointer lg:hidden" 
+                aria-label="Toggle menu" 
+                id="mobile-menu-btn"
+            >
+                <span class="block w-6 h-[2px] rounded-full bg-white transition-all duration-300 origin-center mb-[5px]" id="bar1"></span>
+                <span class="block w-6 h-[2px] rounded-full bg-white transition-all duration-300 mb-[5px]" id="bar2"></span>
+                <span class="block w-6 h-[2px] rounded-full bg-white transition-all duration-300 origin-center" id="bar3"></span>
+            </button>
+            <!-- Desktop Nav -->
+            <nav class="hidden lg:flex items-center gap-1">
+                <a href="#home" class="text-white/80 text-sm font-body font-medium px-3 py-2 rounded-lg hover:text-gold hover:bg-white/5 transition-all">Home</a>
+                <a href="#about" class="text-white/80 text-sm font-body font-medium px-3 py-2 rounded-lg hover:text-gold hover:bg-white/5 transition-all">Our Story</a>
+                <a href="#menu" class="text-white/80 text-sm font-body font-medium px-3 py-2 rounded-lg hover:text-gold hover:bg-white/5 transition-all">Menu</a>
+                <a href="#gallery" class="text-white/80 text-sm font-body font-medium px-3 py-2 rounded-lg hover:text-gold hover:bg-white/5 transition-all">Gallery</a>
+                <a href="#contact" class="text-white/80 text-sm font-body font-medium px-3 py-2 rounded-lg hover:text-gold hover:bg-white/5 transition-all">Contact</a>
+                <a href="tel:078430307" class="ml-2 inline-flex items-center justify-center px-5 py-2 rounded-full font-semibold text-sm bg-gold text-primary shadow-lg hover:bg-[#e8b545] hover:shadow-xl transition-all">📞 Call Now</a>
+            </nav>
+        </div>
     </div>
 </header>
 
+<!-- Mobile Menu Overlay (separate from header for z-index clarity) -->
+<div id="mobile-menu-overlay" class="fixed inset-0 z-[65] bg-primary flex flex-col items-center justify-center opacity-0 pointer-events-none transition-all duration-500 ease-in-out lg:hidden" style="transform: translateY(-100%);">
+    <!-- Kerala pattern overlay -->
+    <div class="absolute inset-0 opacity-[0.03]" style="background-image: url('data:image/svg+xml,%3Csvg width=&quot;40&quot; height=&quot;40&quot; viewBox=&quot;0 0 40 40&quot; xmlns=&quot;http://www.w3.org/2000/svg&quot;%3E%3Cg fill=&quot;%23ffffff&quot; fill-opacity=&quot;1&quot;%3E%3Ccircle cx=&quot;20&quot; cy=&quot;20&quot; r=&quot;2&quot;/%3E%3C/g%3E%3C/svg%3E');"></div>
+    <nav class="flex flex-col items-center gap-6 relative z-10">
+        <a href="#home" class="mobile-nav-link text-white text-2xl font-heading font-bold hover:text-gold transition-colors">Home</a>
+        <a href="#about" class="mobile-nav-link text-white text-2xl font-heading font-bold hover:text-gold transition-colors">Our Story</a>
+        <a href="#menu" class="mobile-nav-link text-white text-2xl font-heading font-bold hover:text-gold transition-colors">Menu</a>
+        <a href="#gallery" class="mobile-nav-link text-white text-2xl font-heading font-bold hover:text-gold transition-colors">Gallery</a>
+        <a href="#contact" class="mobile-nav-link text-white text-2xl font-heading font-bold hover:text-gold transition-colors">Contact</a>
+        <div class="mt-4 border-t border-white/10 pt-6 w-48 text-center">
+            <a href="tel:078430307" class="inline-flex items-center justify-center px-8 py-3 rounded-full font-bold text-base bg-gold text-primary shadow-lg hover:bg-[#e8b545] hover:shadow-xl transition-all">📞 Call Now</a>
+        </div>
+    </nav>
+    <!-- Decorative lotus -->
+    <div class="absolute bottom-8 text-gold/20 text-6xl">🪷</div>
+</div>
+
 <script>
     const mobileMenuBtn = document.getElementById('mobile-menu-btn');
-    const navLinks = document.getElementById('nav-links');
+    const mobileOverlay = document.getElementById('mobile-menu-overlay');
     const bar1 = document.getElementById('bar1');
     const bar2 = document.getElementById('bar2');
     const bar3 = document.getElementById('bar3');
+    let isMenuOpen = false;
     
-    if (mobileMenuBtn && navLinks) {
+    if (mobileMenuBtn && mobileOverlay) {
         mobileMenuBtn.addEventListener('click', () => {
-            const isOpen = navLinks.classList.toggle('active');
-            if (isOpen) {
-                bar1.style.transform = 'rotate(45deg) translate(3px, 3px)';
+            isMenuOpen = !isMenuOpen;
+            if (isMenuOpen) {
+                mobileOverlay.style.transform = 'translateY(0)';
+                mobileOverlay.style.opacity = '1';
+                mobileOverlay.style.pointerEvents = 'auto';
+                bar1.style.transform = 'rotate(45deg) translate(4px, 4px)';
                 bar2.style.opacity = '0';
-                bar3.style.transform = 'rotate(-45deg) translate(3px, -3px)';
+                bar3.style.transform = 'rotate(-45deg) translate(4px, -4px)';
+                document.body.style.overflow = 'hidden';
             } else {
-                bar1.style.transform = 'none';
-                bar2.style.opacity = '1';
-                bar3.style.transform = 'none';
+                closeMenu();
             }
         });
 
-        navLinks.querySelectorAll('a').forEach(link => {
+        mobileOverlay.querySelectorAll('a').forEach(link => {
             link.addEventListener('click', () => {
-                navLinks.classList.remove('active');
-                bar1.style.transform = 'none';
-                bar2.style.opacity = '1';
-                bar3.style.transform = 'none';
+                isMenuOpen = false;
+                closeMenu();
             });
         });
+    }
+
+    function closeMenu() {
+        mobileOverlay.style.transform = 'translateY(-100%)';
+        mobileOverlay.style.opacity = '0';
+        mobileOverlay.style.pointerEvents = 'none';
+        bar1.style.transform = 'none';
+        bar2.style.opacity = '1';
+        bar3.style.transform = 'none';
+        document.body.style.overflow = '';
     }
 </script>

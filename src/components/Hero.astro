@@ -1,25 +1,56 @@
 ---
 ---
-<section id="home" class="relative min-h-[85vh] md:min-h-screen flex items-center justify-center bg-[#1e4a30] text-white overflow-hidden">
-    <!-- Solid color hero with a decorative pattern overlay -->
-    <div class="absolute inset-0 opacity-[0.04]" style="background-image: url('data:image/svg+xml,%3Csvg width=&quot;60&quot; height=&quot;60&quot; viewBox=&quot;0 0 60 60&quot; xmlns=&quot;http://www.w3.org/2000/svg&quot;%3E%3Cg fill=&quot;none&quot; fill-rule=&quot;evenodd&quot;%3E%3Cg fill=&quot;%23ffffff&quot; fill-opacity=&quot;1&quot;%3E%3Cpath d=&quot;M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z&quot;/%3E%3C/g%3E%3C/g%3E%3C/svg%3E');"></div>
-    <div class="w-full max-w-3xl mx-auto px-6 text-center relative z-10 py-28 md:py-0 reveal">
-        <div class="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm rounded-full px-4 py-1.5 mb-6">
-            <span class="w-2 h-2 bg-[#dca43b] rounded-full animate-pulse"></span>
-            <span class="text-[#dca43b] font-medium text-xs uppercase tracking-widest">Now Open 7 Days a Week</span>
+<section id="home" class="relative min-h-screen flex items-center justify-center overflow-hidden">
+    <!-- Background Image -->
+    <div class="absolute inset-0">
+        <img 
+            src="/images/kerala-backwater-hero.png" 
+            alt="Kerala Backwaters" 
+            class="w-full h-full object-cover"
+            fetchpriority="high"
+        />
+        <div class="absolute inset-0 bg-gradient-to-b from-primary/80 via-primary/60 to-primary/90"></div>
+    </div>
+    
+    <!-- Floating spice elements (CSS animated) -->
+    <div class="absolute top-20 left-10 text-4xl opacity-20 animate-bounce" style="animation-delay: 0.5s;">🌿</div>
+    <div class="absolute top-40 right-14 text-3xl opacity-15 animate-bounce" style="animation-delay: 1.2s;">🌶️</div>
+    <div class="absolute bottom-32 left-16 text-3xl opacity-15 animate-bounce" style="animation-delay: 0.8s;">🥥</div>
+    
+    <div class="w-full max-w-4xl mx-auto px-4 sm:px-6 text-center relative z-10 py-32 md:py-0 reveal">
+        <!-- Kerala cultural badge -->
+        <div class="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm rounded-full px-5 py-2 mb-8 border border-white/10">
+            <span class="text-gold text-lg">🪷</span>
+            <span class="text-gold font-medium text-xs uppercase tracking-[4px]">Taste of God's Own Country</span>
+            <span class="text-gold text-lg">🪷</span>
         </div>
-        <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-[3.5rem] font-heading font-bold leading-[1.15] mb-6 text-white">
-            Authentic Kerala<br>Cuisine in <span class="text-[#dca43b]">Hamilton</span>
+        
+        <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-heading font-bold leading-[1.1] mb-6 text-white drop-shadow-lg">
+            Authentic Kerala<br>Cuisine in <span class="text-gold italic">Hamilton</span>
         </h1>
-        <p class="text-base md:text-lg mb-10 text-white/75 max-w-lg mx-auto leading-relaxed font-light">
+        
+        <p class="text-base sm:text-lg md:text-xl mb-10 text-white/80 max-w-xl mx-auto leading-relaxed font-light">
             A unique blend of Kerala, Chinese & Arabic flavours — hand-crafted with love and tradition.
         </p>
-        <div class="flex flex-col sm:flex-row gap-3 justify-center">
-            <a href="#menu" class="inline-flex items-center justify-center px-6 py-3 rounded-full font-semibold text-sm transition-all duration-300 bg-[#c75438] text-white shadow-lg hover:bg-[#b0462e] hover:-translate-y-0.5 hover:shadow-xl">View Our Menu</a>
-            <a href="tel:078430307" class="inline-flex items-center justify-center px-6 py-3 rounded-full font-semibold text-sm transition-all duration-300 border border-white/30 text-white hover:bg-white/10">📞 Order Takeaway</a>
+        
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+            <a href="#menu" class="inline-flex items-center justify-center px-8 py-3.5 rounded-full font-semibold text-sm transition-all duration-300 bg-gold text-primary shadow-lg hover:bg-[#e8b545] hover:-translate-y-1 hover:shadow-2xl">
+                🍽️ View Our Menu
+            </a>
+            <a href="tel:078430307" class="inline-flex items-center justify-center px-8 py-3.5 rounded-full font-semibold text-sm transition-all duration-300 border-2 border-gold/40 text-white hover:bg-gold/10 hover:border-gold">
+                📞 Order Takeaway
+            </a>
+        </div>
+        
+        <!-- Mini info bar -->
+        <div class="mt-12 flex flex-wrap justify-center gap-6 text-white/60 text-xs sm:text-sm font-medium">
+            <span class="flex items-center gap-2"><span class="w-2 h-2 bg-green-400 rounded-full animate-pulse"></span> Open 7 Days</span>
+            <span>🕐 12:00 PM – 9:00 PM</span>
+            <span>📍 Hamilton, NZ</span>
         </div>
     </div>
-    <a href="#about" class="absolute bottom-6 left-1/2 -translate-x-1/2 w-8 h-12 border-2 border-white/30 rounded-full flex justify-center pt-2" aria-label="Scroll down">
-        <span class="block w-1.5 h-1.5 bg-white rounded-full animate-bounce"></span>
+    
+    <a href="#about" class="absolute bottom-8 left-1/2 -translate-x-1/2 w-8 h-12 border-2 border-gold/40 rounded-full flex justify-center pt-2 hover:border-gold transition-colors" aria-label="Scroll down">
+        <span class="block w-1.5 h-1.5 bg-gold rounded-full animate-bounce"></span>
     </a>
 </section>
