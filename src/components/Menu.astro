@@ -192,21 +192,18 @@ const menuData = {
                 const matchesCategory = container.getAttribute('data-category') === selectedCategory;
                 
                 if (isAll || matchesCategory) {
-                    container.style.display = 'block';
-                    // slight delay for animation effect
-                    setTimeout(() => container.style.opacity = '1', 10);
+                    container.classList.remove('hidden');
                     hasVisibleItems = true;
                 } else {
-                    container.style.opacity = '0';
-                    setTimeout(() => container.style.display = 'none', 300); // match transition duration
+                    container.classList.add('hidden');
                 }
             });
 
             if (emptyState) {
                 if (hasVisibleItems) {
-                    emptyState.style.display = 'none';
+                    emptyState.classList.add('hidden');
                 } else {
-                    setTimeout(() => emptyState.style.display = 'block', 300);
+                    emptyState.classList.remove('hidden');
                 }
             }
         }
