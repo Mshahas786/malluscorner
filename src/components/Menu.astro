@@ -1,5 +1,6 @@
 ---
 const categoryLabels = {
+    all: "🍔 All Menus",
     chicken: "🍗 Chicken",
     beef: "🥩 Beef",
     veg: "🥬 Vegetarian",
@@ -105,19 +106,13 @@ const menuData = {
         </div>
 
         <div class="reveal delay-1">
-            <!-- Mobile Category Selector -->
-            <div class="block lg:hidden mb-6">
-                <select id="mobile-menu-select" aria-label="Select Menu Category" class="w-full p-3.5 border border-gray-200 rounded-xl bg-white text-[#1e4a30] text-sm font-body font-medium outline-none shadow-sm focus:ring-2 focus:ring-[#1e4a30]/20 appearance-none cursor-pointer">
-                    {Object.entries(categoryLabels).map(([key, label]) => (
-                        <option value={key}>{label}</option>
-                    ))}
-                </select>
-            </div>
-
-            <!-- Desktop Tabs — Horizontal Scroll -->
-            <div class="hidden lg:flex flex-wrap justify-center gap-2 mb-8" id="menu-tabs">
+            <!-- Scrollable Tabs -->
+            <div class="flex overflow-x-auto lg:flex-wrap justify-start lg:justify-center gap-2 mb-8 pb-4 snap-x" style="scrollbar-width: none;" id="menu-tabs">
+                <style>
+                    #menu-tabs::-webkit-scrollbar { display: none; }
+                </style>
                 {Object.entries(categoryLabels).map(([key, label]) => (
-                    <button class="tab-btn px-4 py-2 bg-white border border-gray-200 text-gray-600 font-body text-sm font-medium rounded-lg cursor-pointer transition-all duration-200 hover:bg-[#1e4a30] hover:text-white hover:border-[#1e4a30] [&.active]:bg-[#1e4a30] [&.active]:text-white [&.active]:border-[#1e4a30] [&.active]:shadow-md" data-category={key}>
+                    <button class="tab-btn shrink-0 snap-start px-4 py-2 bg-white border border-gray-200 text-gray-600 font-body text-sm font-medium rounded-lg cursor-pointer transition-all duration-200 hover:bg-[#1e4a30] hover:text-white hover:border-[#1e4a30] [&.active]:bg-[#1e4a30] [&.active]:text-white [&.active]:border-[#1e4a30] [&.active]:shadow-md" data-category={key}>
                         {label}
                     </button>
                 ))}
@@ -134,48 +129,53 @@ const menuData = {
 <script define:vars={{ menuData, categoryLabels }}>
     const menuGrid = document.getElementById('menu-grid');
     const tabBtns = document.querySelectorAll('.tab-btn');
-    const mobileSelect = document.getElementById('mobile-menu-select');
 
     function renderMenu(category) {
         if (!menuGrid) return;
         menuGrid.innerHTML = '';
-        const items = menuData[category] || [];
+        
+        const categoriesToRender = category === 'all' ? Object.keys(menuData) : [category];
 
-        // Create the table-like container
-        const container = document.createElement('div');
-        container.className = 'bg-white rounded-2xl border border-gray-100 shadow-sm overflow-hidden';
+        categoriesToRender.forEach(cat => {
+            const items = menuData[cat] || [];
+            if (items.length === 0) return;
 
-        // Category header
-        const header = document.createElement('div');
-        header.className = 'bg-[#1e4a30] text-white px-6 py-4 flex items-center justify-between';
-        header.innerHTML = `
-            <h3 class="font-heading text-lg font-bold">${categoryLabels[category] || category}</h3>
-            <span class="text-white/60 text-xs font-body">${items.length} items</span>
-        `;
-        container.appendChild(header);
+            // Create the table-like container
+            const container = document.createElement('div');
+            container.className = 'bg-white rounded-2xl border border-gray-100 shadow-sm overflow-hidden mb-8';
 
-        items.forEach((item, index) => {
-            const row = document.createElement('div');
-            row.className = 'flex items-center justify-between px-6 py-4 border-b border-gray-50 last:border-b-0 hover:bg-[#faf8f5] transition-colors group';
-
-            const left = document.createElement('div');
-            left.className = 'flex items-center gap-3';
-            left.innerHTML = `
-                <span class="w-1.5 h-1.5 bg-[#dca43b] rounded-full opacity-60 group-hover:opacity-100 transition-opacity shrink-0"></span>
-                <span class="font-body text-gray-700 font-medium text-[0.95rem]">${item.name}</span>
+            // Category header
+            const header = document.createElement('div');
+            header.className = 'bg-[#1e4a30] text-white px-6 py-4 flex items-center justify-between';
+            header.innerHTML = `
+                <h3 class="font-heading text-lg font-bold">${categoryLabels[cat] || cat}</h3>
+                <span class="text-white/60 text-xs font-body">${items.length} items</span>
             `;
-            row.appendChild(left);
+            container.appendChild(header);
 
-            if (item.price) {
-                const price = document.createElement('span');
-                price.className = 'font-body font-bold text-[#1e4a30] text-sm whitespace-nowrap ml-4';
-                price.textContent = item.price;
-                row.appendChild(price);
-            }
-            container.appendChild(row);
+            items.forEach((item, index) => {
+                const row = document.createElement('div');
+                row.className = 'flex items-center justify-between px-6 py-4 border-b border-gray-50 last:border-b-0 hover:bg-[#faf8f5] transition-colors group';
+
+                const left = document.createElement('div');
+                left.className = 'flex items-center gap-3';
+                left.innerHTML = `
+                    <span class="w-1.5 h-1.5 bg-[#dca43b] rounded-full opacity-60 group-hover:opacity-100 transition-opacity shrink-0"></span>
+                    <span class="font-body text-gray-700 font-medium text-[0.95rem]">${item.name}</span>
+                `;
+                row.appendChild(left);
+
+                if (item.price) {
+                    const price = document.createElement('span');
+                    price.className = 'font-body font-bold text-[#1e4a30] text-sm whitespace-nowrap ml-4';
+                    price.textContent = item.price;
+                    row.appendChild(price);
+                }
+                container.appendChild(row);
+            });
+
+            menuGrid.appendChild(container);
         });
-
-        menuGrid.appendChild(container);
     }
 
     tabBtns.forEach(btn => {
@@ -183,23 +183,11 @@ const menuData = {
             tabBtns.forEach(t => t.classList.remove('active'));
             e.currentTarget.classList.add('active');
             const category = e.currentTarget.dataset.category;
-            if (mobileSelect) mobileSelect.value = category;
             renderMenu(category);
         });
     });
 
-    if (mobileSelect) {
-        mobileSelect.addEventListener('change', (e) => {
-            const category = e.target.value;
-            tabBtns.forEach(t => {
-                t.classList.remove('active');
-                if (t.dataset.category === category) t.classList.add('active');
-            });
-            renderMenu(category);
-        });
-    }
-
     // Initial render
     if (tabBtns.length > 0) tabBtns[0].classList.add('active');
-    renderMenu('chicken');
+    renderMenu('all');
 </script>
